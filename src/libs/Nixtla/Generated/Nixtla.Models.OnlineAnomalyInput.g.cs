@@ -116,12 +116,12 @@ namespace Nixtla
         /// <param name="detectionSize">
         /// Window over which to detect anomalies starting from the end of the series. This window is not considered when calculating the anomaly threshold to avoid bias from abnormal samples, unless there are less than 6 * detection_size forecasted samples.
         /// </param>
+        /// <param name="h">
+        /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
+        /// </param>
         /// <param name="thresholdMethod">
         /// The thresholding method to detect anomalies<br/>
         /// Default Value: univariate
-        /// </param>
-        /// <param name="h">
-        /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
         /// </param>
         /// <param name="model">
         /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
@@ -174,8 +174,8 @@ namespace Nixtla
             this.Series = series ?? throw new global::System.ArgumentNullException(nameof(series));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
             this.DetectionSize = detectionSize;
-            this.H = h;
             this.ThresholdMethod = thresholdMethod;
+            this.H = h;
             this.Model = model;
             this.CleanExFirst = cleanExFirst;
             this.Level = level;

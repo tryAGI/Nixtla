@@ -82,10 +82,10 @@ namespace Nixtla
         /// <param name="finetuneTokens"></param>
         /// <param name="mean"></param>
         /// <param name="sizes"></param>
+        /// <param name="anomaly"></param>
         /// <param name="intervals"></param>
         /// <param name="weightsX"></param>
         /// <param name="featureContributions"></param>
-        /// <param name="anomaly"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,10 +105,10 @@ namespace Nixtla
             this.FinetuneTokens = finetuneTokens;
             this.Mean = mean ?? throw new global::System.ArgumentNullException(nameof(mean));
             this.Sizes = sizes ?? throw new global::System.ArgumentNullException(nameof(sizes));
-            this.Anomaly = anomaly ?? throw new global::System.ArgumentNullException(nameof(anomaly));
             this.Intervals = intervals;
             this.WeightsX = weightsX;
             this.FeatureContributions = featureContributions;
+            this.Anomaly = anomaly ?? throw new global::System.ArgumentNullException(nameof(anomaly));
         }
 
         /// <summary>
