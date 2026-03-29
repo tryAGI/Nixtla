@@ -37,14 +37,14 @@ namespace Nixtla
         /// <summary>
         /// Initializes a new instance of the <see cref="SeriesWithExogenous" /> class.
         /// </summary>
-        /// <param name="x">
-        /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
-        /// </param>
         /// <param name="y">
         /// Historic values of the target.
         /// </param>
         /// <param name="sizes">
         /// Sizes of the individual series.
+        /// </param>
+        /// <param name="x">
+        /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace Nixtla
             global::System.Collections.Generic.IList<int> sizes,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? x)
         {
+            this.X = x;
             this.Y = y ?? throw new global::System.ArgumentNullException(nameof(y));
             this.Sizes = sizes ?? throw new global::System.ArgumentNullException(nameof(sizes));
-            this.X = x;
         }
 
         /// <summary>

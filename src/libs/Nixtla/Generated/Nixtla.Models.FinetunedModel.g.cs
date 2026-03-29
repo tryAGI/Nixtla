@@ -82,15 +82,15 @@ namespace Nixtla
         /// </summary>
         /// <param name="id"></param>
         /// <param name="createdAt"></param>
-        /// <param name="createdBy">
-        /// Default Value: user
-        /// </param>
         /// <param name="baseModelId"></param>
         /// <param name="steps"></param>
         /// <param name="depth"></param>
         /// <param name="loss"></param>
         /// <param name="model"></param>
         /// <param name="freq"></param>
+        /// <param name="createdBy">
+        /// Default Value: user
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -107,13 +107,13 @@ namespace Nixtla
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
+            this.CreatedBy = createdBy;
             this.BaseModelId = baseModelId ?? throw new global::System.ArgumentNullException(nameof(baseModelId));
             this.Steps = steps;
             this.Depth = depth;
             this.Loss = loss;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
-            this.CreatedBy = createdBy;
         }
 
         /// <summary>
