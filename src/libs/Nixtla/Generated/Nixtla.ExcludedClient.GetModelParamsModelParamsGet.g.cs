@@ -46,7 +46,7 @@ namespace Nixtla
                 path: "/model_params",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddRequiredParameter("model", model.ToString())
+                .AddRequiredParameter("model", model.ToString()!)
                 .AddRequiredParameter("freq", freq) 
                 ; 
             var __path = __pathBuilder.ToString();
