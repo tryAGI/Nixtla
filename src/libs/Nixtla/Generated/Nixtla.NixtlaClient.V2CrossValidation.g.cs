@@ -287,6 +287,7 @@ namespace Nixtla
             bool? refit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Nixtla.CrossValidationInput
             {
                 Series = series,

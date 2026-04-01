@@ -252,6 +252,7 @@ namespace Nixtla
             global::Nixtla.AnyOf<int?, double?>? level = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Nixtla.AnomalyDetectionInput
             {
                 Series = series,
