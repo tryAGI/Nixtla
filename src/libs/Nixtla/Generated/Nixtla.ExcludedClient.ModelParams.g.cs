@@ -266,7 +266,6 @@ namespace Nixtla
             global::Nixtla.SingleSeriesForecastFinetuneLoss? finetuneLoss = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Nixtla.SingleSeriesForecast
             {
                 Model = model,

@@ -261,7 +261,6 @@ namespace Nixtla
             string? finetunedModelId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Nixtla.FinetuneInput
             {
                 Series = series,
