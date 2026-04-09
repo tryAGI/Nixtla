@@ -6,6 +6,7 @@ namespace Nixtla
     public sealed partial class NixtlaClient
     {
         /// <inheritdoc cref="NixtlaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Nixtla.EndPointAuthorization}?, bool)"/>
+
         public NixtlaClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

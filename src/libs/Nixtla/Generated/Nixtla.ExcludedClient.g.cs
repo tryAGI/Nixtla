@@ -12,7 +12,7 @@ namespace Nixtla
         /// <summary>
         /// 
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.nixtla.io";
+        public const string DefaultBaseUrl = "https://api.nixtla.io/";
 
         private bool _disposeHttpClient = true;
 

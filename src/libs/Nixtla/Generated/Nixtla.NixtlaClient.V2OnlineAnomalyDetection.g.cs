@@ -5,6 +5,25 @@ namespace Nixtla
 {
     public partial class NixtlaClient
     {
+
+
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2OnlineAnomalyDetectionSecurityRequirement0 =
+            new global::Nixtla.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
+                {                    new global::Nixtla.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2OnlineAnomalyDetectionSecurityRequirements =
+            new global::Nixtla.EndPointSecurityRequirement[]
+            {                s_V2OnlineAnomalyDetectionSecurityRequirement0,
+            };
         partial void PrepareV2OnlineAnomalyDetectionArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Nixtla.OnlineAnomalyInput request);
@@ -41,9 +60,15 @@ namespace Nixtla
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_V2OnlineAnomalyDetectionSecurityRequirements,
+                operationName: "V2OnlineAnomalyDetectionAsync");
+
             var __pathBuilder = new global::Nixtla.PathBuilder(
                 path: "/v2/online_anomaly_detection",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace Nixtla
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
