@@ -5,6 +5,25 @@ namespace Nixtla
 {
     public partial class NixtlaClient
     {
+
+
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2HistoricForecastSecurityRequirement0 =
+            new global::Nixtla.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
+                {                    new global::Nixtla.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2HistoricForecastSecurityRequirements =
+            new global::Nixtla.EndPointSecurityRequirement[]
+            {                s_V2HistoricForecastSecurityRequirement0,
+            };
         partial void PrepareV2HistoricForecastArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Nixtla.InSampleInput request);
@@ -41,9 +60,15 @@ namespace Nixtla
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_V2HistoricForecastSecurityRequirements,
+                operationName: "V2HistoricForecastAsync");
+
             var __pathBuilder = new global::Nixtla.PathBuilder(
                 path: "/v2/historic_forecast",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace Nixtla
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

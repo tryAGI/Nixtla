@@ -5,6 +5,25 @@ namespace Nixtla
 {
     public partial class ExcludedClient
     {
+
+
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_GetModelParamsModelParamsGetSecurityRequirement0 =
+            new global::Nixtla.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
+                {                    new global::Nixtla.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_GetModelParamsModelParamsGetSecurityRequirements =
+            new global::Nixtla.EndPointSecurityRequirement[]
+            {                s_GetModelParamsModelParamsGetSecurityRequirement0,
+            };
         partial void PrepareGetModelParamsModelParamsGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             object model,
@@ -42,13 +61,19 @@ namespace Nixtla
                 model: model,
                 freq: ref freq);
 
+
+            var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetModelParamsModelParamsGetSecurityRequirements,
+                operationName: "GetModelParamsModelParamsGetAsync");
+
             var __pathBuilder = new global::Nixtla.PathBuilder(
                 path: "/model_params",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("model", model.ToString()!)
                 .AddRequiredParameter("freq", freq) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -58,7 +83,7 @@ namespace Nixtla
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
