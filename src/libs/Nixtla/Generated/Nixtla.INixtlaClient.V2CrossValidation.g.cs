@@ -9,11 +9,13 @@ namespace Nixtla
         /// Perform Cross Validation for multiple series
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Nixtla.CrossValidationOutput> V2CrossValidationAsync(
 
             global::Nixtla.CrossValidationInput request,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Multi Series Cross Validation<br/>
@@ -65,6 +67,7 @@ namespace Nixtla
         /// Fine-tune the model in each window. If `False`, only fine-tunes on the first window. Only used if `finetune_steps` &gt; 0.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Nixtla.CrossValidationOutput> V2CrossValidationAsync(
@@ -82,6 +85,7 @@ namespace Nixtla
             int? stepSize = default,
             global::System.Collections.Generic.IList<int>? histExog = default,
             bool? refit = default,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
