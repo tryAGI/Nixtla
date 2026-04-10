@@ -25,6 +25,7 @@ namespace Nixtla
             Authorizations.Add(new global::Nixtla.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HTTPBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
