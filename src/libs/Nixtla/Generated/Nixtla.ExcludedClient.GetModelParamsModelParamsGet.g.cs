@@ -133,8 +133,8 @@ namespace Nixtla
                 PrepareGetModelParamsModelParamsGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    model: model,
-                    freq: freq);
+                    model: model!,
+                    freq: freq!);
 
                 return __httpRequest;
             }

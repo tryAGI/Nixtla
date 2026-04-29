@@ -125,7 +125,7 @@ namespace Nixtla
                 PrepareV2FinetunedModelV2FinetunedModelsFinetunedModelIdGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    finetunedModelId: finetunedModelId);
+                    finetunedModelId: finetunedModelId!);
 
                 return __httpRequest;
             }
