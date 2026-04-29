@@ -120,7 +120,7 @@ namespace Nixtla
                 PrepareV2FinetunedModelsDeleteV2FinetunedModelsFinetunedModelIdDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    finetunedModelId: finetunedModelId);
+                    finetunedModelId: finetunedModelId!);
 
                 return __httpRequest;
             }
