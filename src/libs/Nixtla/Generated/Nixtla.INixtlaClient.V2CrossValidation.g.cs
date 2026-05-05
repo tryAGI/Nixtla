@@ -21,6 +21,19 @@ namespace Nixtla
         /// Foundational Time Series Model Multi Series Cross Validation<br/>
         /// Perform Cross Validation for multiple series
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Nixtla.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.CrossValidationOutput>> V2CrossValidationAsResponseAsync(
+
+            global::Nixtla.CrossValidationInput request,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Foundational Time Series Model Multi Series Cross Validation<br/>
+        /// Perform Cross Validation for multiple series
+        /// </summary>
         /// <param name="series"></param>
         /// <param name="freq">
         /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
