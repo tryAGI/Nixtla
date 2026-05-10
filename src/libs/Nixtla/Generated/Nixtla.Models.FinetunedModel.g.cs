@@ -122,5 +122,6 @@ namespace Nixtla
         public FinetunedModel()
         {
         }
+
     }
 }

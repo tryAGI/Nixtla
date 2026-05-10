@@ -103,5 +103,6 @@ namespace Nixtla
         public AnomalyDetectionInput()
         {
         }
+
     }
 }

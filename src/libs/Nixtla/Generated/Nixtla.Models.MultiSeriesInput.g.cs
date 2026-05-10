@@ -50,5 +50,6 @@ namespace Nixtla
         public MultiSeriesInput()
         {
         }
+
     }
 }

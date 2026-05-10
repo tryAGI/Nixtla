@@ -117,5 +117,6 @@ namespace Nixtla
         public AnomalyDetectionOutput()
         {
         }
+
     }
 }

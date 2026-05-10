@@ -97,5 +97,6 @@ namespace Nixtla
         public ForecastOutput()
         {
         }
+
     }
 }

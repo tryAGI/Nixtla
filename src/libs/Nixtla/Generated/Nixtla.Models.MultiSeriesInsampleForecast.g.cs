@@ -104,5 +104,6 @@ namespace Nixtla
         public MultiSeriesInsampleForecast()
         {
         }
+
     }
 }
