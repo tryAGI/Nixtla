@@ -165,5 +165,6 @@ namespace Nixtla
         public ForecastInput()
         {
         }
+
     }
 }

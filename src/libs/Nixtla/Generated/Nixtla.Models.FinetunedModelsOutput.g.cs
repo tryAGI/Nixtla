@@ -40,5 +40,6 @@ namespace Nixtla
         public FinetunedModelsOutput()
         {
         }
+
     }
 }

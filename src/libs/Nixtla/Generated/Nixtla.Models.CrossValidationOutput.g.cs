@@ -99,5 +99,6 @@ namespace Nixtla
         public CrossValidationOutput()
         {
         }
+
     }
 }

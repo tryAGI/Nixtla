@@ -70,5 +70,6 @@ namespace Nixtla
         public FinetuneOutput()
         {
         }
+
     }
 }

@@ -128,5 +128,6 @@ namespace Nixtla
         public OnlineAnomalyOutput()
         {
         }
+
     }
 }
