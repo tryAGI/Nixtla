@@ -54,5 +54,6 @@ namespace Nixtla
         public Series()
         {
         }
+
     }
 }

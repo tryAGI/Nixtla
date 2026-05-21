@@ -57,6 +57,29 @@ namespace Nixtla
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await GetModelParamsModelParamsGetAsResponseAsync(
+                model: model,
+                freq: freq,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Get Model Params
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="freq"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Nixtla.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<string>> GetModelParamsModelParamsGetAsResponseAsync(
+            object model,
+            string freq,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetModelParamsModelParamsGetArguments(
@@ -86,12 +109,13 @@ namespace Nixtla
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Nixtla.PathBuilder(
                                 path: "/model_params",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddRequiredParameter("model", model.ToString()!)
-                                .AddRequiredParameter("freq", freq) 
+                                .AddRequiredParameter("freq", freq)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Nixtla.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -164,6 +188,8 @@ namespace Nixtla
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -174,6 +200,11 @@ namespace Nixtla
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Nixtla.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -191,6 +222,8 @@ namespace Nixtla
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -200,8 +233,7 @@ namespace Nixtla
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Nixtla.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -210,6 +242,11 @@ namespace Nixtla
                         __attempt < __maxAttempts &&
                         global::Nixtla.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Nixtla.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -226,14 +263,15 @@ namespace Nixtla
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Nixtla.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -273,6 +311,8 @@ namespace Nixtla
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -293,6 +333,8 @@ namespace Nixtla
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Validation Error
@@ -355,7 +397,11 @@ namespace Nixtla
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return __content;
+                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -383,7 +429,11 @@ namespace Nixtla
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return __content;
+                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

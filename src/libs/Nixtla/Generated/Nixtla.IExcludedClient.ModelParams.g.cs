@@ -21,6 +21,18 @@ namespace Nixtla
         /// <summary>
         /// Model Params
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Nixtla.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<string>> ModelParamsAsResponseAsync(
+
+            global::Nixtla.SingleSeriesForecast request,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Model Params
+        /// </summary>
         /// <param name="model">
         /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
         /// Default Value: timegpt-1

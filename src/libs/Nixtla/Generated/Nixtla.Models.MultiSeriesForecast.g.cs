@@ -160,5 +160,6 @@ namespace Nixtla
         public MultiSeriesForecast()
         {
         }
+
     }
 }

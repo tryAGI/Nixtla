@@ -113,5 +113,6 @@ namespace Nixtla
         public InSampleInput()
         {
         }
+
     }
 }

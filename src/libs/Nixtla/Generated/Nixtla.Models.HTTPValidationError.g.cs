@@ -39,5 +39,6 @@ namespace Nixtla
         public HTTPValidationError()
         {
         }
+
     }
 }

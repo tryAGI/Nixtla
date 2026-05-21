@@ -107,5 +107,6 @@ namespace Nixtla
         public InSampleOutput()
         {
         }
+
     }
 }

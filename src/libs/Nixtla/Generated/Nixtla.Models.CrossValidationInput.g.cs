@@ -199,5 +199,6 @@ namespace Nixtla
         public CrossValidationInput()
         {
         }
+
     }
 }
