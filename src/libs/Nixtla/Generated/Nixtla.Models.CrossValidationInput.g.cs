@@ -13,7 +13,7 @@ namespace Nixtla
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("series")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Nixtla.SeriesWithExogenous Series { get; set; }
+        public required global::Nixtla.SeriesWithFutureExogenous Series { get; set; }
 
         /// <summary>
         /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
@@ -23,11 +23,11 @@ namespace Nixtla
         public required string Freq { get; set; }
 
         /// <summary>
-        /// Number of windows to evaluate.
+        /// Number of windows to evaluate.<br/>
+        /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_windows")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NWindows { get; set; }
+        public int? NWindows { get; set; }
 
         /// <summary>
         /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
@@ -37,11 +37,18 @@ namespace Nixtla
         public required int H { get; set; }
 
         /// <summary>
+        /// Forecast across the entire series history (the `add_history` use case). The horizon and number of windows are derived server-side (any supplied `h` / `n_windows` are ignored), and the exogenous model is refit a bounded number of times to keep whole-history requests fast. Has no effect without exogenous features.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("full_history")]
+        public bool? FullHistory { get; set; }
+
+        /// <summary>
         /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
         /// Default Value: timegpt-1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        public object? Model { get; set; }
+        public string? Model { get; set; }
 
         /// <summary>
         /// A boolean flag that indicates whether the API should preprocess (clean) the exogenous signal before applying the large time model. If True, the exogenous signal is cleaned; if False, the exogenous variables are applied after the large time model.<br/>
@@ -64,7 +71,7 @@ namespace Nixtla
         public int? FinetuneSteps { get; set; }
 
         /// <summary>
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetune_loss")]
@@ -72,7 +79,7 @@ namespace Nixtla
         public global::Nixtla.CrossValidationInputFinetuneLoss? FinetuneLoss { get; set; }
 
         /// <summary>
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetune_depth")]
@@ -104,6 +111,26 @@ namespace Nixtla
         public bool? Refit { get; set; }
 
         /// <summary>
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multivariate")]
+        public bool? Multivariate { get; set; }
+
+        /// <summary>
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_parameters")]
+        public object? ModelParameters { get; set; }
+
+        /// <summary>
+        /// Compute the exogenous features contributions to the forecast.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("feature_contributions")]
+        public bool? FeatureContributions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -116,11 +143,16 @@ namespace Nixtla
         /// <param name="freq">
         /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
         /// </param>
-        /// <param name="nWindows">
-        /// Number of windows to evaluate.
-        /// </param>
         /// <param name="h">
         /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
+        /// </param>
+        /// <param name="nWindows">
+        /// Number of windows to evaluate.<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="fullHistory">
+        /// Forecast across the entire series history (the `add_history` use case). The horizon and number of windows are derived server-side (any supplied `h` / `n_windows` are ignored), and the exogenous model is refit a bounded number of times to keep whole-history requests fast. Has no effect without exogenous features.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="model">
         /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
@@ -138,11 +170,11 @@ namespace Nixtla
         /// Default Value: 0
         /// </param>
         /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </param>
         /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="finetunedModelId">
@@ -158,15 +190,27 @@ namespace Nixtla
         /// Fine-tune the model in each window. If `False`, only fine-tunes on the first window. Only used if `finetune_steps` &gt; 0.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="multivariate">
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="modelParameters">
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </param>
+        /// <param name="featureContributions">
+        /// Compute the exogenous features contributions to the forecast.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CrossValidationInput(
-            global::Nixtla.SeriesWithExogenous series,
+            global::Nixtla.SeriesWithFutureExogenous series,
             string freq,
-            int nWindows,
             int h,
-            object? model,
+            int? nWindows,
+            bool? fullHistory,
+            string? model,
             bool? cleanExFirst,
             global::System.Collections.Generic.IList<global::Nixtla.AnyOf<int?, double?>>? level,
             int? finetuneSteps,
@@ -175,12 +219,16 @@ namespace Nixtla
             string? finetunedModelId,
             int? stepSize,
             global::System.Collections.Generic.IList<int>? histExog,
-            bool? refit)
+            bool? refit,
+            bool? multivariate,
+            object? modelParameters,
+            bool? featureContributions)
         {
             this.Series = series ?? throw new global::System.ArgumentNullException(nameof(series));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
             this.NWindows = nWindows;
             this.H = h;
+            this.FullHistory = fullHistory;
             this.Model = model;
             this.CleanExFirst = cleanExFirst;
             this.Level = level;
@@ -191,6 +239,9 @@ namespace Nixtla
             this.StepSize = stepSize;
             this.HistExog = histExog;
             this.Refit = refit;
+            this.Multivariate = multivariate;
+            this.ModelParameters = modelParameters;
+            this.FeatureContributions = featureContributions;
         }
 
         /// <summary>

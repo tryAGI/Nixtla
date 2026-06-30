@@ -57,6 +57,12 @@ namespace Nixtla
         public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? Intervals { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("feature_contributions")]
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? FeatureContributions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +78,7 @@ namespace Nixtla
         /// <param name="sizes"></param>
         /// <param name="idxs"></param>
         /// <param name="intervals"></param>
+        /// <param name="featureContributions"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,7 +89,8 @@ namespace Nixtla
             global::System.Collections.Generic.IList<double> mean,
             global::System.Collections.Generic.IList<int> sizes,
             global::System.Collections.Generic.IList<int> idxs,
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? intervals)
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? intervals,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? featureContributions)
         {
             this.InputTokens = inputTokens;
             this.OutputTokens = outputTokens;
@@ -91,6 +99,7 @@ namespace Nixtla
             this.Sizes = sizes ?? throw new global::System.ArgumentNullException(nameof(sizes));
             this.Idxs = idxs ?? throw new global::System.ArgumentNullException(nameof(idxs));
             this.Intervals = intervals;
+            this.FeatureContributions = featureContributions;
         }
 
         /// <summary>

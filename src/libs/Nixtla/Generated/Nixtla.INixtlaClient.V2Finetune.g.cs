@@ -6,7 +6,7 @@ namespace Nixtla
     {
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,7 +32,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="series"></param>
         /// <param name="freq">
@@ -47,11 +47,11 @@ namespace Nixtla
         /// Default Value: 10
         /// </param>
         /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </param>
         /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="outputModelId">
@@ -60,18 +60,31 @@ namespace Nixtla
         /// <param name="finetunedModelId">
         /// ID of previously finetuned model
         /// </param>
+        /// <param name="histExog">
+        /// Zero-based indices of the exogenous features to treat as historical.
+        /// </param>
+        /// <param name="multivariate">
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="modelParameters">
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Nixtla.FinetuneOutput> V2FinetuneAsync(
-            global::Nixtla.Series series,
+            global::Nixtla.SeriesWithFutureExogenous series,
             string freq,
-            object? model = default,
+            string? model = default,
             int? finetuneSteps = default,
             global::Nixtla.FinetuneInputFinetuneLoss? finetuneLoss = default,
             int? finetuneDepth = default,
             string? outputModelId = default,
             string? finetunedModelId = default,
+            global::System.Collections.Generic.IList<int>? histExog = default,
+            bool? multivariate = default,
+            object? modelParameters = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

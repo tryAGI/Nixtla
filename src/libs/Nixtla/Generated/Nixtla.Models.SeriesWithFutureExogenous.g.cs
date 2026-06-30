@@ -12,13 +12,19 @@ namespace Nixtla
         /// Future values of the exogenous features. Each feature must be a list of size number of series times the forecast horizon (h).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("X_future")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? XFuture { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? XFuture { get; set; }
 
         /// <summary>
         /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("X")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? X { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? X { get; set; }
+
+        /// <summary>
+        /// Zero-based indices of the columns in X that are categorical features.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("categorical_exog")]
+        public global::System.Collections.Generic.IList<int>? CategoricalExog { get; set; }
 
         /// <summary>
         /// Historic values of the target.
@@ -55,17 +61,22 @@ namespace Nixtla
         /// <param name="x">
         /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
         /// </param>
+        /// <param name="categoricalExog">
+        /// Zero-based indices of the columns in X that are categorical features.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SeriesWithFutureExogenous(
             global::System.Collections.Generic.IList<double> y,
             global::System.Collections.Generic.IList<int> sizes,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? xFuture,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? x)
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? xFuture,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? x,
+            global::System.Collections.Generic.IList<int>? categoricalExog)
         {
             this.XFuture = xFuture;
             this.X = x;
+            this.CategoricalExog = categoricalExog;
             this.Y = y ?? throw new global::System.ArgumentNullException(nameof(y));
             this.Sizes = sizes ?? throw new global::System.ArgumentNullException(nameof(sizes));
         }

@@ -479,10 +479,15 @@ namespace Nixtla
         /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
         /// </param>
         /// <param name="nWindows">
-        /// Number of windows to evaluate.
+        /// Number of windows to evaluate.<br/>
+        /// Default Value: 1
         /// </param>
         /// <param name="h">
         /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
+        /// </param>
+        /// <param name="fullHistory">
+        /// Forecast across the entire series history (the `add_history` use case). The horizon and number of windows are derived server-side (any supplied `h` / `n_windows` are ignored), and the exogenous model is refit a bounded number of times to keep whole-history requests fast. Has no effect without exogenous features.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="model">
         /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
@@ -500,11 +505,11 @@ namespace Nixtla
         /// Default Value: 0
         /// </param>
         /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </param>
         /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="finetunedModelId">
@@ -520,15 +525,27 @@ namespace Nixtla
         /// Fine-tune the model in each window. If `False`, only fine-tunes on the first window. Only used if `finetune_steps` &gt; 0.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="multivariate">
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="modelParameters">
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </param>
+        /// <param name="featureContributions">
+        /// Compute the exogenous features contributions to the forecast.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Nixtla.CrossValidationOutput> V2CrossValidationAsync(
-            global::Nixtla.SeriesWithExogenous series,
+            global::Nixtla.SeriesWithFutureExogenous series,
             string freq,
-            int nWindows,
             int h,
-            object? model = default,
+            int? nWindows = default,
+            bool? fullHistory = default,
+            string? model = default,
             bool? cleanExFirst = default,
             global::System.Collections.Generic.IList<global::Nixtla.AnyOf<int?, double?>>? level = default,
             int? finetuneSteps = default,
@@ -538,6 +555,9 @@ namespace Nixtla
             int? stepSize = default,
             global::System.Collections.Generic.IList<int>? histExog = default,
             bool? refit = default,
+            bool? multivariate = default,
+            object? modelParameters = default,
+            bool? featureContributions = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -547,6 +567,7 @@ namespace Nixtla
                 Freq = freq,
                 NWindows = nWindows,
                 H = h,
+                FullHistory = fullHistory,
                 Model = model,
                 CleanExFirst = cleanExFirst,
                 Level = level,
@@ -557,6 +578,9 @@ namespace Nixtla
                 StepSize = stepSize,
                 HistExog = histExog,
                 Refit = refit,
+                Multivariate = multivariate,
+                ModelParameters = modelParameters,
+                FeatureContributions = featureContributions,
             };
 
             return await V2CrossValidationAsync(

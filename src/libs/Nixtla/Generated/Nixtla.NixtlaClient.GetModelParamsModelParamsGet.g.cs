@@ -7,7 +7,7 @@ namespace Nixtla
     {
 
 
-        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2FinetuneSecurityRequirement0 =
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_GetModelParamsModelParamsGetSecurityRequirement0 =
             new global::Nixtla.EndPointSecurityRequirement
             {
                 Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
@@ -21,43 +21,45 @@ namespace Nixtla
                     },
                 },
             };
-        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2FinetuneSecurityRequirements =
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_GetModelParamsModelParamsGetSecurityRequirements =
             new global::Nixtla.EndPointSecurityRequirement[]
-            {                s_V2FinetuneSecurityRequirement0,
+            {                s_GetModelParamsModelParamsGetSecurityRequirement0,
             };
-        partial void PrepareV2FinetuneArguments(
+        partial void PrepareGetModelParamsModelParamsGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Nixtla.FinetuneInput request);
-        partial void PrepareV2FinetuneRequest(
+            ref string model,
+            ref string freq);
+        partial void PrepareGetModelParamsModelParamsGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Nixtla.FinetuneInput request);
-        partial void ProcessV2FinetuneResponse(
+            string model,
+            string freq);
+        partial void ProcessGetModelParamsModelParamsGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV2FinetuneResponseContent(
+        partial void ProcessGetModelParamsModelParamsGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Get Model Params
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="model"></param>
+        /// <param name="freq"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.FinetuneOutput> V2FinetuneAsync(
-
-            global::Nixtla.FinetuneInput request,
+        public async global::System.Threading.Tasks.Task<string> GetModelParamsModelParamsGetAsync(
+            string model,
+            string freq,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await V2FinetuneAsResponseAsync(
-
-                request: request,
+            var __response = await GetModelParamsModelParamsGetAsResponseAsync(
+                model: model,
+                freq: freq,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,32 +67,31 @@ namespace Nixtla
             return __response.Body;
         }
         /// <summary>
-        /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Get Model Params
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="model"></param>
+        /// <param name="freq"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.FinetuneOutput>> V2FinetuneAsResponseAsync(
-
-            global::Nixtla.FinetuneInput request,
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<string>> GetModelParamsModelParamsGetAsResponseAsync(
+            string model,
+            string freq,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareV2FinetuneArguments(
+            PrepareGetModelParamsModelParamsGetArguments(
                 httpClient: HttpClient,
-                request: request);
+                model: ref model,
+                freq: ref freq);
 
 
             var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_V2FinetuneSecurityRequirements,
-                operationName: "V2FinetuneAsync");
+                securityRequirements: s_GetModelParamsModelParamsGetSecurityRequirements,
+                operationName: "GetModelParamsModelParamsGetAsync");
 
             using var __timeoutCancellationTokenSource = global::Nixtla.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -110,15 +111,19 @@ namespace Nixtla
             {
 
                             var __pathBuilder = new global::Nixtla.PathBuilder(
-                                path: "/v2/finetune",
+                                path: "/model_params",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("model", model)
+                                .AddRequiredParameter("freq", freq)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Nixtla.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -141,12 +146,6 @@ namespace Nixtla
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::Nixtla.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -155,10 +154,11 @@ namespace Nixtla
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareV2FinetuneRequest(
+                PrepareGetModelParamsModelParamsGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    request: request);
+                    model: model!,
+                    freq: freq!);
 
                 return __httpRequest;
             }
@@ -175,10 +175,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Finetune",
-                                methodName: "V2FinetuneAsync",
-                                pathTemplate: "\"/v2/finetune\"",
-                                httpMethod: "POST",
+                                operationId: "GetModelParamsModelParamsGet",
+                                methodName: "GetModelParamsModelParamsGetAsync",
+                                pathTemplate: "\"/model_params\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -209,10 +209,10 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Finetune",
-                                methodName: "V2FinetuneAsync",
-                                pathTemplate: "\"/v2/finetune\"",
-                                httpMethod: "POST",
+                                operationId: "GetModelParamsModelParamsGet",
+                                methodName: "GetModelParamsModelParamsGetAsync",
+                                pathTemplate: "\"/model_params\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -250,10 +250,10 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Finetune",
-                                methodName: "V2FinetuneAsync",
-                                pathTemplate: "\"/v2/finetune\"",
-                                httpMethod: "POST",
+                                operationId: "GetModelParamsModelParamsGet",
+                                methodName: "GetModelParamsModelParamsGetAsync",
+                                pathTemplate: "\"/model_params\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -290,7 +290,7 @@ namespace Nixtla
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessV2FinetuneResponse(
+                ProcessGetModelParamsModelParamsGetResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,10 +298,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Finetune",
-                                methodName: "V2FinetuneAsync",
-                                pathTemplate: "\"/v2/finetune\"",
-                                httpMethod: "POST",
+                                operationId: "GetModelParamsModelParamsGet",
+                                methodName: "GetModelParamsModelParamsGetAsync",
+                                pathTemplate: "\"/model_params\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -320,10 +320,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Finetune",
-                                methodName: "V2FinetuneAsync",
-                                pathTemplate: "\"/v2/finetune\"",
-                                httpMethod: "POST",
+                                operationId: "GetModelParamsModelParamsGet",
+                                methodName: "GetModelParamsModelParamsGetAsync",
+                                pathTemplate: "\"/model_params\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -387,7 +387,7 @@ namespace Nixtla
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessV2FinetuneResponseContent(
+                                ProcessGetModelParamsModelParamsGetResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -396,13 +396,11 @@ namespace Nixtla
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Nixtla.FinetuneOutput.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.FinetuneOutput>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -422,19 +420,17 @@ namespace Nixtla
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Nixtla.FinetuneOutput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.FinetuneOutput>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -469,84 +465,6 @@ namespace Nixtla
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
-        /// </summary>
-        /// <param name="series"></param>
-        /// <param name="freq">
-        /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
-        /// </param>
-        /// <param name="model">
-        /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon.` Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
-        /// Default Value: timegpt-1
-        /// </param>
-        /// <param name="finetuneSteps">
-        /// The number of tuning steps used to train the large time model on the data. Set this value to 0 for zero-shot inference, i.e., to make predictions without any further model tuning.<br/>
-        /// Default Value: 10
-        /// </param>
-        /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
-        /// Default Value: default
-        /// </param>
-        /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="outputModelId">
-        /// ID to assign to the finetuned model
-        /// </param>
-        /// <param name="finetunedModelId">
-        /// ID of previously finetuned model
-        /// </param>
-        /// <param name="histExog">
-        /// Zero-based indices of the exogenous features to treat as historical.
-        /// </param>
-        /// <param name="multivariate">
-        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="modelParameters">
-        /// Optional dictionary of parameters to customize the behavior of the large time model. 
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.FinetuneOutput> V2FinetuneAsync(
-            global::Nixtla.SeriesWithFutureExogenous series,
-            string freq,
-            string? model = default,
-            int? finetuneSteps = default,
-            global::Nixtla.FinetuneInputFinetuneLoss? finetuneLoss = default,
-            int? finetuneDepth = default,
-            string? outputModelId = default,
-            string? finetunedModelId = default,
-            global::System.Collections.Generic.IList<int>? histExog = default,
-            bool? multivariate = default,
-            object? modelParameters = default,
-            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::Nixtla.FinetuneInput
-            {
-                Series = series,
-                Freq = freq,
-                Model = model,
-                FinetuneSteps = finetuneSteps,
-                FinetuneLoss = finetuneLoss,
-                FinetuneDepth = finetuneDepth,
-                OutputModelId = outputModelId,
-                FinetunedModelId = finetunedModelId,
-                HistExog = histExog,
-                Multivariate = multivariate,
-                ModelParameters = modelParameters,
-            };
-
-            return await V2FinetuneAsync(
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
