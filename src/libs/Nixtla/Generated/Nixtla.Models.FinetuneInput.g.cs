@@ -13,7 +13,7 @@ namespace Nixtla
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("series")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Nixtla.Series Series { get; set; }
+        public required global::Nixtla.SeriesWithFutureExogenous Series { get; set; }
 
         /// <summary>
         /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
@@ -27,7 +27,7 @@ namespace Nixtla
         /// Default Value: timegpt-1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        public object? Model { get; set; }
+        public string? Model { get; set; }
 
         /// <summary>
         /// The number of tuning steps used to train the large time model on the data. Set this value to 0 for zero-shot inference, i.e., to make predictions without any further model tuning.<br/>
@@ -37,7 +37,7 @@ namespace Nixtla
         public int? FinetuneSteps { get; set; }
 
         /// <summary>
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetune_loss")]
@@ -45,7 +45,7 @@ namespace Nixtla
         public global::Nixtla.FinetuneInputFinetuneLoss? FinetuneLoss { get; set; }
 
         /// <summary>
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetune_depth")]
@@ -62,6 +62,25 @@ namespace Nixtla
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetuned_model_id")]
         public string? FinetunedModelId { get; set; }
+
+        /// <summary>
+        /// Zero-based indices of the exogenous features to treat as historical.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hist_exog")]
+        public global::System.Collections.Generic.IList<int>? HistExog { get; set; }
+
+        /// <summary>
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multivariate")]
+        public bool? Multivariate { get; set; }
+
+        /// <summary>
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_parameters")]
+        public object? ModelParameters { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -85,11 +104,11 @@ namespace Nixtla
         /// Default Value: 10
         /// </param>
         /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
         /// Default Value: default
         /// </param>
         /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. By default, the value is set to 1.<br/>
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models, meanwhile it has no effect on the other models. By default, the value is set to 1.<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="outputModelId">
@@ -98,18 +117,31 @@ namespace Nixtla
         /// <param name="finetunedModelId">
         /// ID of previously finetuned model
         /// </param>
+        /// <param name="histExog">
+        /// Zero-based indices of the exogenous features to treat as historical.
+        /// </param>
+        /// <param name="multivariate">
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="modelParameters">
+        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FinetuneInput(
-            global::Nixtla.Series series,
+            global::Nixtla.SeriesWithFutureExogenous series,
             string freq,
-            object? model,
+            string? model,
             int? finetuneSteps,
             global::Nixtla.FinetuneInputFinetuneLoss? finetuneLoss,
             int? finetuneDepth,
             string? outputModelId,
-            string? finetunedModelId)
+            string? finetunedModelId,
+            global::System.Collections.Generic.IList<int>? histExog,
+            bool? multivariate,
+            object? modelParameters)
         {
             this.Series = series ?? throw new global::System.ArgumentNullException(nameof(series));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
@@ -119,6 +151,9 @@ namespace Nixtla
             this.FinetuneDepth = finetuneDepth;
             this.OutputModelId = outputModelId;
             this.FinetunedModelId = finetunedModelId;
+            this.HistExog = histExog;
+            this.Multivariate = multivariate;
+            this.ModelParameters = modelParameters;
         }
 
         /// <summary>

@@ -45,10 +45,5 @@ namespace Nixtla
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ExcludedClient Excluded { get; }
-
     }
 }
