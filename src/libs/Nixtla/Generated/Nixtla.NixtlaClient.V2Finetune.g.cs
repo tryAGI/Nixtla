@@ -43,7 +43,7 @@ namespace Nixtla
 
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace Nixtla
         }
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -472,7 +472,7 @@ namespace Nixtla
         }
         /// <summary>
         /// Foundational Time Series Model Multi Series Finetuning<br/>
-        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Fine-tune the large time model to your data and save it for later use. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the ID of the finetuned model, which you can provide in other endpoints to use that model to make the forecasts. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="series"></param>
         /// <param name="freq">

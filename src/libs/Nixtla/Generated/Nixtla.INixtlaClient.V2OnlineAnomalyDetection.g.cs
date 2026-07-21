@@ -6,7 +6,7 @@ namespace Nixtla
     {
         /// <summary>
         /// Foundational Time Series Model Online Multi Series Anomaly Detector<br/>
-        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Online Multi Series Anomaly Detector<br/>
-        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,7 +32,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Online Multi Series Anomaly Detector<br/>
-        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// This endpoint performs online anomaly detection based on the provided data. It uses cross-validation for more robust detection of anomalies and it supports detection for univariate and multivariate scenarios. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly, it provides the prediction interval used to define if an observation is an anomaly, and it reports the associated z-score for each point. Get your token for private beta at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="series"></param>
         /// <param name="freq">
