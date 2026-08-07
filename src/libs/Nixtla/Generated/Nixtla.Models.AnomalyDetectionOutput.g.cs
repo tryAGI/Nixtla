@@ -58,12 +58,6 @@ namespace Nixtla
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("feature_contributions")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? FeatureContributions { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("anomaly")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<bool> Anomaly { get; set; }
@@ -85,7 +79,6 @@ namespace Nixtla
         /// <param name="anomaly"></param>
         /// <param name="intervals"></param>
         /// <param name="weightsX"></param>
-        /// <param name="featureContributions"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -97,8 +90,7 @@ namespace Nixtla
             global::System.Collections.Generic.IList<int> sizes,
             global::System.Collections.Generic.IList<bool> anomaly,
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? intervals,
-            global::System.Collections.Generic.IList<double>? weightsX,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>? featureContributions)
+            global::System.Collections.Generic.IList<double>? weightsX)
         {
             this.InputTokens = inputTokens;
             this.OutputTokens = outputTokens;
@@ -107,7 +99,6 @@ namespace Nixtla
             this.Sizes = sizes ?? throw new global::System.ArgumentNullException(nameof(sizes));
             this.Intervals = intervals;
             this.WeightsX = weightsX;
-            this.FeatureContributions = featureContributions;
             this.Anomaly = anomaly ?? throw new global::System.ArgumentNullException(nameof(anomaly));
         }
 

@@ -70,13 +70,6 @@ namespace Nixtla
         public global::Nixtla.AnyOf<int?, double?>? Level { get; set; }
 
         /// <summary>
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("feature_contributions")]
-        public bool? FeatureContributions { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -114,10 +107,6 @@ namespace Nixtla
         /// Specifies the confidence level for the prediction interval used in anomaly detection. It is represented as a percentage between 0 and 100. For instance, a level of 95 indicates that the generated prediction interval captures the true future observation 95% of the time. Any observed values outside of this interval would be considered anomalies. A higher level leads to wider prediction intervals and potentially fewer detected anomalies, whereas a lower level results in narrower intervals and potentially more detected anomalies. Default: 99.<br/>
         /// Default Value: 99
         /// </param>
-        /// <param name="featureContributions">
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -130,8 +119,7 @@ namespace Nixtla
             bool? multivariate,
             object? modelParameters,
             global::System.Collections.Generic.IList<int>? histExog,
-            global::Nixtla.AnyOf<int?, double?>? level,
-            bool? featureContributions)
+            global::Nixtla.AnyOf<int?, double?>? level)
         {
             this.Series = series ?? throw new global::System.ArgumentNullException(nameof(series));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
@@ -142,7 +130,6 @@ namespace Nixtla
             this.ModelParameters = modelParameters;
             this.HistExog = histExog;
             this.Level = level;
-            this.FeatureContributions = featureContributions;
         }
 
         /// <summary>
