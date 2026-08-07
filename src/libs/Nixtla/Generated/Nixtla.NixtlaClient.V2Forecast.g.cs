@@ -511,6 +511,10 @@ namespace Nixtla
         /// Compute the exogenous features contributions to the forecast.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="featureContributionsType">
+        /// Method used to compute feature contributions. Options are: 'shapley' (default), 'intervention', 'granger', 'transfer_entropy'. The methods differ in semantics: 'shapley' returns per-timestep contributions that sum to the forecast (last row = per-timestep base prediction); 'intervention' returns each feature's counterfactual effect (forecast minus forecast with that feature held at its baseline) and does NOT sum to the forecast; 'granger'/'transfer_entropy' allocate each series' forecast deviation from its mean proportionally to model-agnostic historical importance weights — the rows sum to the forecast by construction, but they are a proportional allocation describing relationships in the data, not a per-feature attribution of this specific forecast. Use the /v2/explain endpoint for standalone historical importance weights.<br/>
+        /// Default Value: shapley
+        /// </param>
         /// <param name="multivariate">
         /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
         /// Default Value: false
@@ -533,6 +537,7 @@ namespace Nixtla
             int? finetuneDepth = default,
             string? finetunedModelId = default,
             bool? featureContributions = default,
+            global::Nixtla.ForecastInputFeatureContributionsType? featureContributionsType = default,
             bool? multivariate = default,
             object? modelParameters = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
@@ -551,6 +556,7 @@ namespace Nixtla
                 FinetuneDepth = finetuneDepth,
                 FinetunedModelId = finetunedModelId,
                 FeatureContributions = featureContributions,
+                FeatureContributionsType = featureContributionsType,
                 Multivariate = multivariate,
                 ModelParameters = modelParameters,
             };

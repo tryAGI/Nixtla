@@ -17,6 +17,10 @@ namespace Nixtla
 
             typeof(global::Nixtla.JsonConverters.CrossValidationInputFinetuneLossNullableJsonConverter),
 
+            typeof(global::Nixtla.JsonConverters.CrossValidationInputFeatureContributionsTypeJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.CrossValidationInputFeatureContributionsTypeNullableJsonConverter),
+
             typeof(global::Nixtla.JsonConverters.FinetuneInputFinetuneLossJsonConverter),
 
             typeof(global::Nixtla.JsonConverters.FinetuneInputFinetuneLossNullableJsonConverter),
@@ -28,6 +32,10 @@ namespace Nixtla
             typeof(global::Nixtla.JsonConverters.ForecastInputFinetuneLossJsonConverter),
 
             typeof(global::Nixtla.JsonConverters.ForecastInputFinetuneLossNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastInputFeatureContributionsTypeJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastInputFeatureContributionsTypeNullableJsonConverter),
 
             typeof(global::Nixtla.JsonConverters.OnlineAnomalyInputThresholdMethodJsonConverter),
 
@@ -66,12 +74,13 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnomalyDetectionOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<bool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.AnyOf<int?, double?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationInputFinetuneLoss), TypeInfoPropertyName = "CrossValidationInputFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationInputFeatureContributionsType), TypeInfoPropertyName = "CrossValidationInputFeatureContributionsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.FinetuneInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.FinetuneInputFinetuneLoss), TypeInfoPropertyName = "FinetuneInputFinetuneLoss2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.FinetuneOutput))]
@@ -81,6 +90,7 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.FinetunedModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastInputFinetuneLoss), TypeInfoPropertyName = "ForecastInputFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastInputFeatureContributionsType), TypeInfoPropertyName = "ForecastInputFeatureContributionsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.ValidationError>))]
@@ -97,9 +107,9 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<bool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.AnyOf<int?, double?>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.FinetunedModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>))]

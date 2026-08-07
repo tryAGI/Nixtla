@@ -6,7 +6,7 @@ namespace Nixtla
     {
         /// <summary>
         /// Foundational Time Series Model Multi Series Anomaly Detector<br/>
-        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Multi Series Anomaly Detector<br/>
-        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,7 +32,7 @@ namespace Nixtla
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Foundational Time Series Model Multi Series Anomaly Detector<br/>
-        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://www.nixtla.io/book-a-free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Based on the provided data, this endpoint detects the anomalies in the historical perdiod of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains a flag indicating if the date has an anomaly and also provides the prediction interval used to define if an observation is an anomaly.Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
         /// </summary>
         /// <param name="series"></param>
         /// <param name="freq">
@@ -63,10 +63,6 @@ namespace Nixtla
         /// Specifies the confidence level for the prediction interval used in anomaly detection. It is represented as a percentage between 0 and 100. For instance, a level of 95 indicates that the generated prediction interval captures the true future observation 95% of the time. Any observed values outside of this interval would be considered anomalies. A higher level leads to wider prediction intervals and potentially fewer detected anomalies, whereas a lower level results in narrower intervals and potentially more detected anomalies. Default: 99.<br/>
         /// Default Value: 99
         /// </param>
-        /// <param name="featureContributions">
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -80,7 +76,6 @@ namespace Nixtla
             object? modelParameters = default,
             global::System.Collections.Generic.IList<int>? histExog = default,
             global::Nixtla.AnyOf<int?, double?>? level = default,
-            bool? featureContributions = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

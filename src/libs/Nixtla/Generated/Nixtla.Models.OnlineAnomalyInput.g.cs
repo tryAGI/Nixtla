@@ -127,13 +127,6 @@ namespace Nixtla
         public object? ModelParameters { get; set; }
 
         /// <summary>
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("feature_contributions")]
-        public bool? FeatureContributions { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -200,10 +193,6 @@ namespace Nixtla
         /// <param name="modelParameters">
         /// Optional dictionary of parameters to customize the behavior of the large time model. 
         /// </param>
-        /// <param name="featureContributions">
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -224,8 +213,7 @@ namespace Nixtla
             global::System.Collections.Generic.IList<int>? histExog,
             bool? refit,
             bool? multivariate,
-            object? modelParameters,
-            bool? featureContributions)
+            object? modelParameters)
         {
             this.Series = series ?? throw new global::System.ArgumentNullException(nameof(series));
             this.Freq = freq ?? throw new global::System.ArgumentNullException(nameof(freq));
@@ -244,7 +232,6 @@ namespace Nixtla
             this.Refit = refit;
             this.Multivariate = multivariate;
             this.ModelParameters = modelParameters;
-            this.FeatureContributions = featureContributions;
         }
 
         /// <summary>

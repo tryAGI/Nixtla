@@ -96,6 +96,10 @@ namespace Nixtla
         /// Compute the exogenous features contributions to the forecast.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="featureContributionsType">
+        /// Method used to compute feature contributions. Options are: 'shapley' (default), 'intervention', 'granger', 'transfer_entropy'. The methods differ in semantics: 'shapley' returns per-timestep contributions that sum to the forecast (last row = per-timestep base prediction); 'intervention' returns each feature's counterfactual effect (forecast minus forecast with that feature held at its baseline) and does NOT sum to the forecast; 'granger'/'transfer_entropy' allocate each series' forecast deviation from its mean proportionally to model-agnostic historical importance weights — the rows sum to the forecast by construction, but they are a proportional allocation describing relationships in the data, not a per-feature attribution of this specific forecast. Use the /v2/explain endpoint for standalone historical importance weights.<br/>
+        /// Default Value: shapley
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -118,6 +122,7 @@ namespace Nixtla
             bool? multivariate = default,
             object? modelParameters = default,
             bool? featureContributions = default,
+            global::Nixtla.CrossValidationInputFeatureContributionsType? featureContributionsType = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
