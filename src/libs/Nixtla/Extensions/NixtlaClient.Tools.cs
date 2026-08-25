@@ -65,7 +65,7 @@ public static class NixtlaClientTools
                     .Select(v => double.Parse(v.Trim(), System.Globalization.CultureInfo.InvariantCulture))
                     .ToList();
 
-                var series = new SeriesWithExogenous
+                var series = new SeriesWithFutureExogenous
                 {
                     Y = y,
                     Sizes = [y.Count],
