@@ -11,7 +11,7 @@ namespace Nixtla
     public sealed partial class NixtlaClient : global::Nixtla.INixtlaClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.nixtla.io/";
 
@@ -38,7 +38,7 @@ namespace Nixtla
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Nixtla.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {

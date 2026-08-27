@@ -10,11 +10,11 @@ namespace Nixtla
     public enum OnlineAnomalyInputThresholdMethod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Multivariate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Univariate,
     }

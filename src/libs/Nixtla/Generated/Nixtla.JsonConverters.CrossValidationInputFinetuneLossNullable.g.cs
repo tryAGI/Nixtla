@@ -20,7 +20,7 @@ namespace Nixtla.JsonConverters
                     {
                         return global::Nixtla.CrossValidationInputFinetuneLossExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

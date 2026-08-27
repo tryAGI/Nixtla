@@ -4,7 +4,7 @@
 namespace Nixtla
 {
     /// <summary>
-    /// Optional dictionary of parameters to customize the behavior of the large time model. 
+    /// Optional dictionary of parameters to customize the behavior of the large time model.
     /// </summary>
     public sealed partial class AnomalyDetectionInputModelParameters
     {

@@ -4,19 +4,19 @@
 namespace Nixtla
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FinetunedModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,28 +29,28 @@ namespace Nixtla
         public string? CreatedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BaseModelId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("steps")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Steps { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("depth")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Depth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Nixtla.JsonConverters.FinetunedModelLossJsonConverter))]
@@ -58,14 +58,14 @@ namespace Nixtla
         public required global::Nixtla.FinetunedModelLoss Loss { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("freq")]
         [global::System.Text.Json.Serialization.JsonRequired]

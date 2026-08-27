@@ -4,36 +4,36 @@
 namespace Nixtla
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum FinetunedModelLoss
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mae,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mape,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Poisson,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rmse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Smape,
     }

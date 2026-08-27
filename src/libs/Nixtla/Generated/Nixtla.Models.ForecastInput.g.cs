@@ -4,12 +4,12 @@
 namespace Nixtla
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ForecastInput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("series")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -100,7 +100,7 @@ namespace Nixtla
         public bool? Multivariate { get; set; }
 
         /// <summary>
-        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// Optional dictionary of parameters to customize the behavior of the large time model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_parameters")]
         public object? ModelParameters { get; set; }
@@ -160,7 +160,7 @@ namespace Nixtla
         /// Default Value: false
         /// </param>
         /// <param name="modelParameters">
-        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// Optional dictionary of parameters to customize the behavior of the large time model.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

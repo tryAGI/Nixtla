@@ -4,12 +4,12 @@
 namespace Nixtla
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FinetunedModelsOutput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetuned_models")]
         [global::System.Text.Json.Serialization.JsonRequired]
