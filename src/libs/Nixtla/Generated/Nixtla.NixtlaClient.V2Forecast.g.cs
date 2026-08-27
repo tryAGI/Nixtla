@@ -139,7 +139,7 @@ namespace Nixtla
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -520,7 +520,7 @@ namespace Nixtla
         /// Default Value: false
         /// </param>
         /// <param name="modelParameters">
-        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// Optional dictionary of parameters to customize the behavior of the large time model.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

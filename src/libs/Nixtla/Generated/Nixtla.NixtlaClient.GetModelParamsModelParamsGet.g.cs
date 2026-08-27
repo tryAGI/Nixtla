@@ -144,7 +144,7 @@ namespace Nixtla
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Nixtla.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

@@ -54,7 +54,7 @@ namespace Nixtla
         /// Default Value: false
         /// </param>
         /// <param name="modelParameters">
-        /// Optional dictionary of parameters to customize the behavior of the large time model. 
+        /// Optional dictionary of parameters to customize the behavior of the large time model.
         /// </param>
         /// <param name="histExog">
         /// Zero-based indices of the exogenous features to treat as historical.
