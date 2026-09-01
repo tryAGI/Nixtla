@@ -6,14 +6,8 @@ namespace Nixtla
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class SeriesWithFutureExogenous
+    public sealed partial class SeriesWithExogenous
     {
-        /// <summary>
-        /// Future values of the exogenous features. Each feature must be a list of size number of series times the forecast horizon (h).
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("X_future")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? XFuture { get; set; }
-
         /// <summary>
         /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
         /// </summary>
@@ -53,16 +47,13 @@ namespace Nixtla
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SeriesWithFutureExogenous" /> class.
+        /// Initializes a new instance of the <see cref="SeriesWithExogenous" /> class.
         /// </summary>
         /// <param name="y">
         /// Historic values of the target.
         /// </param>
         /// <param name="sizes">
         /// Sizes of the individual series.
-        /// </param>
-        /// <param name="xFuture">
-        /// Future values of the exogenous features. Each feature must be a list of size number of series times the forecast horizon (h).
         /// </param>
         /// <param name="x">
         /// Historic values of the exogenous features. Each feature must be a list of the same size as the target (y).
@@ -76,15 +67,13 @@ namespace Nixtla
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public SeriesWithFutureExogenous(
+        public SeriesWithExogenous(
             global::System.Collections.Generic.IList<double> y,
             global::System.Collections.Generic.IList<int> sizes,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? xFuture,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? x,
             global::System.Collections.Generic.IList<int>? categoricalExog,
             global::System.Collections.Generic.IList<string>? startDatetime)
         {
-            this.XFuture = xFuture;
             this.X = x;
             this.CategoricalExog = categoricalExog;
             this.Y = y ?? throw new global::System.ArgumentNullException(nameof(y));
@@ -93,9 +82,9 @@ namespace Nixtla
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SeriesWithFutureExogenous" /> class.
+        /// Initializes a new instance of the <see cref="SeriesWithExogenous" /> class.
         /// </summary>
-        public SeriesWithFutureExogenous()
+        public SeriesWithExogenous()
         {
         }
 

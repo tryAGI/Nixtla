@@ -109,95 +109,115 @@ namespace Nixtla
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetuneInput? Type19 { get; set; }
+        public global::Nixtla.ExplainInput? Type19 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetuneInputFinetuneLoss? Type20 { get; set; }
+        public global::Nixtla.SeriesWithExogenous? Type20 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetuneOutput? Type21 { get; set; }
+        public global::Nixtla.ExplainInputMethod? Type21 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetunedModel? Type22 { get; set; }
+        public global::Nixtla.ExplainOutput? Type22 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetunedModelLoss? Type23 { get; set; }
+        public global::System.Collections.Generic.IList<string>? Type23 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetunedModelsOutput? Type24 { get; set; }
+        public global::Nixtla.FinetuneInput? Type24 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.FinetunedModel>? Type25 { get; set; }
+        public global::Nixtla.FinetuneInputFinetuneLoss? Type25 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastInput? Type26 { get; set; }
+        public global::Nixtla.FinetuneOutput? Type26 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastInputFinetuneLoss? Type27 { get; set; }
+        public global::Nixtla.FinetunedModel? Type27 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastInputFeatureContributionsType? Type28 { get; set; }
+        public global::Nixtla.FinetunedModelLoss? Type28 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastOutput? Type29 { get; set; }
+        public global::Nixtla.FinetunedModelsOutput? Type29 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.HTTPValidationError? Type30 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.FinetunedModel>? Type30 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.ValidationError>? Type31 { get; set; }
+        public global::Nixtla.ForecastInput? Type31 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ValidationError? Type32 { get; set; }
+        public global::Nixtla.ForecastInputFinetuneLoss? Type32 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInput? Type33 { get; set; }
+        public global::Nixtla.ForecastInputFeatureContributionsType? Type33 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInputThresholdMethod? Type34 { get; set; }
+        public global::Nixtla.ForecastOutput? Type34 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInputFinetuneLoss? Type35 { get; set; }
+        public global::Nixtla.HTTPValidationError? Type35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyOutput? Type36 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.ValidationError>? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? Type37 { get; set; }
+        public global::Nixtla.ValidationError? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>? Type38 { get; set; }
+        public global::Nixtla.OnlineAnomalyInput? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnyOf<double?, string>? Type39 { get; set; }
+        public global::Nixtla.OnlineAnomalyInputThresholdMethod? Type39 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<string, int?>>? Type40 { get; set; }
+        public global::Nixtla.OnlineAnomalyInputFinetuneLoss? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnyOf<string, int?>? Type41 { get; set; }
+        public global::Nixtla.OnlineAnomalyOutput? Type41 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? Type42 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>? Type43 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.AnyOf<double?, string>? Type44 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<string, int?>>? Type45 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.AnyOf<string, int?>? Type46 { get; set; }
 
         /// <summary>
         ///
@@ -226,22 +246,26 @@ namespace Nixtla
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.FinetunedModel>? ListType6 { get; set; }
+        public global::System.Collections.Generic.List<string>? ListType6 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.ValidationError>? ListType7 { get; set; }
+        public global::System.Collections.Generic.List<global::Nixtla.FinetunedModel>? ListType7 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>? ListType8 { get; set; }
+        public global::System.Collections.Generic.List<global::Nixtla.ValidationError>? ListType8 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>? ListType9 { get; set; }
+        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>? ListType9 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<string, int?>>? ListType10 { get; set; }
+        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>? ListType10 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<string, int?>>? ListType11 { get; set; }
     }
 }

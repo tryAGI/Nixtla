@@ -7,7 +7,7 @@ namespace Nixtla
     {
 
 
-        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2ForecastSecurityRequirement0 =
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2ExplainSecurityRequirement0 =
             new global::Nixtla.EndPointSecurityRequirement
             {
                 Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
@@ -21,41 +21,41 @@ namespace Nixtla
                     },
                 },
             };
-        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2ForecastSecurityRequirements =
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2ExplainSecurityRequirements =
             new global::Nixtla.EndPointSecurityRequirement[]
-            {                s_V2ForecastSecurityRequirement0,
+            {                s_V2ExplainSecurityRequirement0,
             };
-        partial void PrepareV2ForecastArguments(
+        partial void PrepareV2ExplainArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Nixtla.ForecastInput request);
-        partial void PrepareV2ForecastRequest(
+            global::Nixtla.ExplainInput request);
+        partial void PrepareV2ExplainRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Nixtla.ForecastInput request);
-        partial void ProcessV2ForecastResponse(
+            global::Nixtla.ExplainInput request);
+        partial void ProcessV2ExplainResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV2ForecastResponseContent(
+        partial void ProcessV2ExplainResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Foundational Time Series Model Multi Series<br/>
-        /// Based on the provided data, this endpoint predicts the future values of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the predicted values for each series based on the input arguments. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Compute model-agnostic feature importance weights<br/>
+        /// Compute model-agnostic feature importance weights for the provided exogenous features. It takes a JSON as an input containing the historical data with exogenous features and the attribution method to use. No foundation model is involved. The response contains one normalized weight per feature.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.ForecastOutput> V2ForecastAsync(
+        public async global::System.Threading.Tasks.Task<global::Nixtla.ExplainOutput> V2ExplainAsync(
 
-            global::Nixtla.ForecastInput request,
+            global::Nixtla.ExplainInput request,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await V2ForecastAsResponseAsync(
+            var __response = await V2ExplainAsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -65,16 +65,16 @@ namespace Nixtla
             return __response.Body;
         }
         /// <summary>
-        /// Foundational Time Series Model Multi Series<br/>
-        /// Based on the provided data, this endpoint predicts the future values of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the predicted values for each series based on the input arguments. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Compute model-agnostic feature importance weights<br/>
+        /// Compute model-agnostic feature importance weights for the provided exogenous features. It takes a JSON as an input containing the historical data with exogenous features and the attribution method to use. No foundation model is involved. The response contains one normalized weight per feature.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ForecastOutput>> V2ForecastAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ExplainOutput>> V2ExplainAsResponseAsync(
 
-            global::Nixtla.ForecastInput request,
+            global::Nixtla.ExplainInput request,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,15 +82,15 @@ namespace Nixtla
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareV2ForecastArguments(
+            PrepareV2ExplainArguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_V2ForecastSecurityRequirements,
-                operationName: "V2ForecastAsync");
+                securityRequirements: s_V2ExplainSecurityRequirements,
+                operationName: "V2ExplainAsync");
 
             using var __timeoutCancellationTokenSource = global::Nixtla.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -110,7 +110,7 @@ namespace Nixtla
             {
 
                             var __pathBuilder = new global::Nixtla.PathBuilder(
-                                path: "/v2/forecast",
+                                path: "/v2/explain",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Nixtla.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -155,7 +155,7 @@ namespace Nixtla
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareV2ForecastRequest(
+                PrepareV2ExplainRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -175,9 +175,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Forecast",
-                                methodName: "V2ForecastAsync",
-                                pathTemplate: "\"/v2/forecast\"",
+                                operationId: "V2Explain",
+                                methodName: "V2ExplainAsync",
+                                pathTemplate: "\"/v2/explain\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -209,9 +209,9 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Forecast",
-                                methodName: "V2ForecastAsync",
-                                pathTemplate: "\"/v2/forecast\"",
+                                operationId: "V2Explain",
+                                methodName: "V2ExplainAsync",
+                                pathTemplate: "\"/v2/explain\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -250,9 +250,9 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Forecast",
-                                methodName: "V2ForecastAsync",
-                                pathTemplate: "\"/v2/forecast\"",
+                                operationId: "V2Explain",
+                                methodName: "V2ExplainAsync",
+                                pathTemplate: "\"/v2/explain\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +290,7 @@ namespace Nixtla
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessV2ForecastResponse(
+                ProcessV2ExplainResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,9 +298,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Forecast",
-                                methodName: "V2ForecastAsync",
-                                pathTemplate: "\"/v2/forecast\"",
+                                operationId: "V2Explain",
+                                methodName: "V2ExplainAsync",
+                                pathTemplate: "\"/v2/explain\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -320,9 +320,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "V2Forecast",
-                                methodName: "V2ForecastAsync",
-                                pathTemplate: "\"/v2/forecast\"",
+                                operationId: "V2Explain",
+                                methodName: "V2ExplainAsync",
+                                pathTemplate: "\"/v2/explain\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -387,7 +387,7 @@ namespace Nixtla
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessV2ForecastResponseContent(
+                                ProcessV2ExplainResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -396,9 +396,9 @@ namespace Nixtla
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Nixtla.ForecastOutput.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Nixtla.ExplainOutput.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ForecastOutput>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ExplainOutput>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +428,9 @@ namespace Nixtla
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Nixtla.ForecastOutput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Nixtla.ExplainOutput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ForecastOutput>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ExplainOutput>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,97 +471,30 @@ namespace Nixtla
             }
         }
         /// <summary>
-        /// Foundational Time Series Model Multi Series<br/>
-        /// Based on the provided data, this endpoint predicts the future values of multiple time series at once. It takes a JSON as an input containing information like the series frequency and historical data. (See below for a full description of the parameters.) The response contains the predicted values for each series based on the input arguments. Get your token at https://nixtla.io/free-trial?utm_source=nixtla.io&amp;utm_campaign=/docs/api-reference.
+        /// Compute model-agnostic feature importance weights<br/>
+        /// Compute model-agnostic feature importance weights for the provided exogenous features. It takes a JSON as an input containing the historical data with exogenous features and the attribution method to use. No foundation model is involved. The response contains one normalized weight per feature.
         /// </summary>
         /// <param name="series"></param>
-        /// <param name="freq">
-        /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
-        /// </param>
-        /// <param name="h">
-        /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
-        /// </param>
-        /// <param name="model">
-        /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon`. Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
-        /// Default Value: timegpt-1
-        /// </param>
-        /// <param name="cleanExFirst">
-        /// A boolean flag that indicates whether the API should preprocess (clean) the exogenous signal before applying the large time model. If True, the exogenous signal is cleaned; if False, the exogenous variables are applied after the large time model.<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="level">
-        /// A list of values representing the prediction intervals. Each value is a percentage that indicates the level of certainty for the corresponding prediction interval. For example, [80, 90] defines 80% and 90% prediction intervals.
-        /// </param>
-        /// <param name="finetuneSteps">
-        /// The number of tuning steps used to train the large time model on the data. Set this value to 0 for zero-shot inference, i.e., to make predictions without any further model tuning.<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="finetuneLoss">
-        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps is larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
-        /// Default Value: default
-        /// </param>
-        /// <param name="finetuneDepth">
-        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models; it has no effect on the other models. By default, the value is set to 1.<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="finetunedModelId">
-        /// ID of previously finetuned model
-        /// </param>
-        /// <param name="featureContributions">
-        /// Compute the exogenous features contributions to the forecast.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="featureContributionsType">
-        /// Method used to compute feature contributions. Options are: 'shapley' (default), 'intervention', 'granger', 'transfer_entropy'. The methods differ in semantics: 'shapley' returns per-timestep contributions that sum to the forecast (last row = per-timestep base prediction); 'intervention' returns each feature's counterfactual effect (forecast minus forecast with that feature held at its baseline) and does NOT sum to the forecast; 'granger'/'transfer_entropy' allocate each series' forecast deviation from its mean proportionally to model-agnostic historical importance weights — the rows sum to the forecast by construction, but they are a proportional allocation describing relationships in the data, not a per-feature attribution of this specific forecast. Use the /v2/explain endpoint for standalone historical importance weights.<br/>
-        /// Default Value: shapley
-        /// </param>
-        /// <param name="multivariate">
-        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="modelParameters">
-        /// Optional dictionary of parameters to customize the behavior of the large time model.
+        /// <param name="method">
+        /// Model-agnostic causal analysis method used by the /v2/explain endpoint. Options are: 'granger' (default) and 'transfer_entropy'.<br/>
+        /// Default Value: granger
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.ForecastOutput> V2ForecastAsync(
-            global::Nixtla.SeriesWithFutureExogenous series,
-            string freq,
-            int h,
-            string? model = default,
-            bool? cleanExFirst = default,
-            global::System.Collections.Generic.IList<global::Nixtla.AnyOf<int?, double?>>? level = default,
-            int? finetuneSteps = default,
-            global::Nixtla.ForecastInputFinetuneLoss? finetuneLoss = default,
-            int? finetuneDepth = default,
-            string? finetunedModelId = default,
-            bool? featureContributions = default,
-            global::Nixtla.ForecastInputFeatureContributionsType? featureContributionsType = default,
-            bool? multivariate = default,
-            object? modelParameters = default,
+        public async global::System.Threading.Tasks.Task<global::Nixtla.ExplainOutput> V2ExplainAsync(
+            global::Nixtla.SeriesWithExogenous series,
+            global::Nixtla.ExplainInputMethod? method = default,
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Nixtla.ForecastInput
+            var __request = new global::Nixtla.ExplainInput
             {
                 Series = series,
-                Freq = freq,
-                H = h,
-                Model = model,
-                CleanExFirst = cleanExFirst,
-                Level = level,
-                FinetuneSteps = finetuneSteps,
-                FinetuneLoss = finetuneLoss,
-                FinetuneDepth = finetuneDepth,
-                FinetunedModelId = finetunedModelId,
-                FeatureContributions = featureContributions,
-                FeatureContributionsType = featureContributionsType,
-                Multivariate = multivariate,
-                ModelParameters = modelParameters,
+                Method = method,
             };
 
-            return await V2ForecastAsync(
+            return await V2ExplainAsync(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
