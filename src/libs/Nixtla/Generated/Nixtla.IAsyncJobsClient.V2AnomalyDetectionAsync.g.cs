@@ -1,0 +1,121 @@
+#nullable enable
+
+namespace Nixtla
+{
+    public partial interface IAsyncJobsClient
+    {
+        /// <summary>
+        /// Submit an async anomaly_detection job<br/>
+        /// Queues a anomaly_detection job and returns immediately with its `job_id`. The job runs in a sandbox; poll `GET /v2/anomaly_detection/jobs/{job_id}` for its state and result. Accepts the same body as the synchronous endpoint plus an optional `job_options`.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Nixtla.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Nixtla.AsyncJobSubmitResponse> V2AnomalyDetectionAsyncAsync(
+
+            global::Nixtla.AnomalyDetectionAsyncRequest request,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Submit an async anomaly_detection job<br/>
+        /// Queues a anomaly_detection job and returns immediately with its `job_id`. The job runs in a sandbox; poll `GET /v2/anomaly_detection/jobs/{job_id}` for its state and result. Accepts the same body as the synchronous endpoint plus an optional `job_options`.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Nixtla.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.AsyncJobSubmitResponse>> V2AnomalyDetectionAsyncAsResponseAsync(
+
+            global::Nixtla.AnomalyDetectionAsyncRequest request,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Submit an async anomaly_detection job<br/>
+        /// Queues a anomaly_detection job and returns immediately with its `job_id`. The job runs in a sandbox; poll `GET /v2/anomaly_detection/jobs/{job_id}` for its state and result. Accepts the same body as the synchronous endpoint plus an optional `job_options`.
+        /// </summary>
+        /// <param name="series"></param>
+        /// <param name="freq">
+        /// The frequency of the data represented as a string. 'D' for daily, 'M' for monthly, 'H' for hourly, and 'W' for weekly frequencies are available.
+        /// </param>
+        /// <param name="detectionSize">
+        /// Window over which to detect anomalies starting from the end of the series. This window is not considered when calculating the anomaly threshold to avoid bias from abnormal samples, unless there are fewer than 6 * detection_size forecasted samples.
+        /// </param>
+        /// <param name="thresholdMethod">
+        /// The thresholding method to detect anomalies<br/>
+        /// Default Value: univariate
+        /// </param>
+        /// <param name="h">
+        /// The forecasting horizon. This represents the number of time steps into the future that the forecast should predict.
+        /// </param>
+        /// <param name="model">
+        /// Model to use as a string. Common options are (but not restricted to) `timegpt-1` and `timegpt-1-long-horizon`. Full options vary by different users. Contact support@nixtla.io for more information. We recommend using `timegpt-1-long-horizon` for forecasting if you want to predict more than one seasonal period given the frequency of your data.<br/>
+        /// Default Value: timegpt-1
+        /// </param>
+        /// <param name="cleanExFirst">
+        /// A boolean flag that indicates whether the API should preprocess (clean) the exogenous signal before applying the large time model. If True, the exogenous signal is cleaned; if False, the exogenous variables are applied after the large time model.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="level">
+        /// Specifies the confidence level for the prediction interval used in anomaly detection. It is represented as a percentage between 0 and 100. For instance, a level of 95 indicates that the generated prediction interval captures the true future observation 95% of the time. Any observed values outside of this interval would be considered anomalies. A higher level leads to wider prediction intervals and potentially fewer detected anomalies, whereas a lower level results in narrower intervals and potentially more detected anomalies. Default: 99.<br/>
+        /// Default Value: 99
+        /// </param>
+        /// <param name="finetuneSteps">
+        /// The number of tuning steps used to train the large time model on the data. Set this value to 0 for zero-shot inference, i.e., to make predictions without any further model tuning.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="finetuneLoss">
+        /// The loss used to train the large time model on the data. Select from ['default', 'mae', 'mse', 'rmse', 'mape', 'smape', 'poisson']. It will only be used if finetune_steps is larger than 0. Default is a robust loss function that is less sensitive to outliers.<br/>
+        /// Default Value: default
+        /// </param>
+        /// <param name="finetuneDepth">
+        /// The depth of the finetuning. Uses a scale from 1 to 5, where 1 means little finetuning, and 5 means that the entire model is finetuned. Note that this parameter is only effective for timegpt-1 and timegpt-1-long-horizon models; it has no effect on the other models. By default, the value is set to 1.<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="finetunedModelId">
+        /// ID of previously finetuned model
+        /// </param>
+        /// <param name="stepSize">
+        /// Step size between each cross validation window. If None it will be equal to the forecasting horizon.
+        /// </param>
+        /// <param name="histExog">
+        /// Zero-based indices of the exogenous features to treat as historical.
+        /// </param>
+        /// <param name="refit">
+        /// Fine-tune the model in each window. If `False`, only fine-tunes on the first window. Only used if `finetune_steps` &gt; 0.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="multivariate">
+        /// Compute multivariate predictions across a batch of multiple time series. Requires all time series with overlapping dates. Note that this is only effective for timegpt-2.1 model and it has no effect on the other models. By default, the value is set to False.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="modelParameters">
+        /// Optional dictionary of parameters to customize the behavior of the large time model.
+        /// </param>
+        /// <param name="jobOptions"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::Nixtla.AsyncJobSubmitResponse> V2AnomalyDetectionAsyncAsync(
+            global::Nixtla.SeriesWithFutureExogenous series,
+            string freq,
+            int detectionSize,
+            int h,
+            global::Nixtla.AnomalyDetectionAsyncRequestThresholdMethod? thresholdMethod = default,
+            string? model = default,
+            bool? cleanExFirst = default,
+            global::Nixtla.AnyOf<int?, double?>? level = default,
+            int? finetuneSteps = default,
+            global::Nixtla.AnomalyDetectionAsyncRequestFinetuneLoss? finetuneLoss = default,
+            int? finetuneDepth = default,
+            string? finetunedModelId = default,
+            int? stepSize = default,
+            global::System.Collections.Generic.IList<int>? histExog = default,
+            bool? refit = default,
+            bool? multivariate = default,
+            object? modelParameters = default,
+            global::Nixtla.AsyncJobOptions? jobOptions = default,
+            global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

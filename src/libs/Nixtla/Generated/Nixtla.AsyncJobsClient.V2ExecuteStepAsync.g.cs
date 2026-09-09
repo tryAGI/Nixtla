@@ -3,11 +3,11 @@
 
 namespace Nixtla
 {
-    public partial class NixtlaClient
+    public partial class AsyncJobsClient
     {
 
 
-        private static readonly global::Nixtla.EndPointSecurityRequirement s_GetModelParamsModelParamsGetSecurityRequirement0 =
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2ExecuteStepAsyncSecurityRequirement0 =
             new global::Nixtla.EndPointSecurityRequirement
             {
                 Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
@@ -21,45 +21,36 @@ namespace Nixtla
                     },
                 },
             };
-        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_GetModelParamsModelParamsGetSecurityRequirements =
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2ExecuteStepAsyncSecurityRequirements =
             new global::Nixtla.EndPointSecurityRequirement[]
-            {                s_GetModelParamsModelParamsGetSecurityRequirement0,
+            {                s_V2ExecuteStepAsyncSecurityRequirement0,
             };
-        partial void PrepareGetModelParamsModelParamsGetArguments(
+        partial void PrepareV2ExecuteStepAsyncArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareV2ExecuteStepAsyncRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref string model,
-            ref string freq);
-        partial void PrepareGetModelParamsModelParamsGetRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string model,
-            string freq);
-        partial void ProcessGetModelParamsModelParamsGetResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessV2ExecuteStepAsyncResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetModelParamsModelParamsGetResponseContent(
+        partial void ProcessV2ExecuteStepAsyncResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Model Params
+        /// Submit an async execute_step job<br/>
+        /// Queues an execute_step job and returns immediately with its `job_id`. The body is a zip of parquet members and the call parameters travel in the `nixtla-metadata` header, not as JSON. Poll `GET /v2/execute_step/jobs/{job_id}` for its state, then fetch the zip from `/result` once it reads `succeeded`.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="freq"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> GetModelParamsModelParamsGetAsync(
-            string model,
-            string freq,
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AsyncJobSubmitResponse> V2ExecuteStepAsyncAsync(
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetModelParamsModelParamsGetAsResponseAsync(
-                model: model,
-                freq: freq,
+            var __response = await V2ExecuteStepAsyncAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,31 +58,26 @@ namespace Nixtla
             return __response.Body;
         }
         /// <summary>
-        /// Get Model Params
+        /// Submit an async execute_step job<br/>
+        /// Queues an execute_step job and returns immediately with its `job_id`. The body is a zip of parquet members and the call parameters travel in the `nixtla-metadata` header, not as JSON. Poll `GET /v2/execute_step/jobs/{job_id}` for its state, then fetch the zip from `/result` once it reads `succeeded`.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="freq"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<string>> GetModelParamsModelParamsGetAsResponseAsync(
-            string model,
-            string freq,
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.AsyncJobSubmitResponse>> V2ExecuteStepAsyncAsResponseAsync(
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetModelParamsModelParamsGetArguments(
-                httpClient: HttpClient,
-                model: ref model,
-                freq: ref freq);
+            PrepareV2ExecuteStepAsyncArguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetModelParamsModelParamsGetSecurityRequirements,
-                operationName: "GetModelParamsModelParamsGetAsync");
+                securityRequirements: s_V2ExecuteStepAsyncSecurityRequirements,
+                operationName: "V2ExecuteStepAsyncAsync");
 
             using var __timeoutCancellationTokenSource = global::Nixtla.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -111,19 +97,15 @@ namespace Nixtla
             {
 
                             var __pathBuilder = new global::Nixtla.PathBuilder(
-                                path: "/model_params",
+                                path: "/v2/execute_step/async",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddRequiredParameter("model", model)
-                                .AddRequiredParameter("freq", freq)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Nixtla.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -154,11 +136,9 @@ namespace Nixtla
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetModelParamsModelParamsGetRequest(
+                PrepareV2ExecuteStepAsyncRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    model: model!,
-                    freq: freq!);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -175,10 +155,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetModelParamsModelParamsGet",
-                                methodName: "GetModelParamsModelParamsGetAsync",
-                                pathTemplate: "\"/model_params\"",
-                                httpMethod: "GET",
+                                operationId: "V2ExecuteStepAsync",
+                                methodName: "V2ExecuteStepAsyncAsync",
+                                pathTemplate: "\"/v2/execute_step/async\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -209,10 +189,10 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetModelParamsModelParamsGet",
-                                methodName: "GetModelParamsModelParamsGetAsync",
-                                pathTemplate: "\"/model_params\"",
-                                httpMethod: "GET",
+                                operationId: "V2ExecuteStepAsync",
+                                methodName: "V2ExecuteStepAsyncAsync",
+                                pathTemplate: "\"/v2/execute_step/async\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -250,10 +230,10 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetModelParamsModelParamsGet",
-                                methodName: "GetModelParamsModelParamsGetAsync",
-                                pathTemplate: "\"/model_params\"",
-                                httpMethod: "GET",
+                                operationId: "V2ExecuteStepAsync",
+                                methodName: "V2ExecuteStepAsyncAsync",
+                                pathTemplate: "\"/v2/execute_step/async\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -290,7 +270,7 @@ namespace Nixtla
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetModelParamsModelParamsGetResponse(
+                ProcessV2ExecuteStepAsyncResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,10 +278,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetModelParamsModelParamsGet",
-                                methodName: "GetModelParamsModelParamsGetAsync",
-                                pathTemplate: "\"/model_params\"",
-                                httpMethod: "GET",
+                                operationId: "V2ExecuteStepAsync",
+                                methodName: "V2ExecuteStepAsyncAsync",
+                                pathTemplate: "\"/v2/execute_step/async\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -320,10 +300,10 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetModelParamsModelParamsGet",
-                                methodName: "GetModelParamsModelParamsGetAsync",
-                                pathTemplate: "\"/model_params\"",
-                                httpMethod: "GET",
+                                operationId: "V2ExecuteStepAsync",
+                                methodName: "V2ExecuteStepAsyncAsync",
+                                pathTemplate: "\"/v2/execute_step/async\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -337,43 +317,6 @@ namespace Nixtla
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Validation Error
-                            if ((int)__response.StatusCode == 422)
-                            {
-                                string? __content_422 = null;
-                                global::System.Exception? __exception_422 = null;
-                                global::Nixtla.HTTPValidationError? __value_422 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::Nixtla.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_422 = global::Nixtla.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_422 = __ex;
-                                }
-
-
-                                throw global::Nixtla.ApiException<global::Nixtla.HTTPValidationError>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_422,
-                                    responseBody: __content_422,
-                                    responseObject: __value_422,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -387,7 +330,7 @@ namespace Nixtla
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetModelParamsModelParamsGetResponseContent(
+                                ProcessV2ExecuteStepAsyncResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -396,11 +339,13 @@ namespace Nixtla
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
+                                    var __value = global::Nixtla.AsyncJobSubmitResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.AsyncJobSubmitResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -420,17 +365,19 @@ namespace Nixtla
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::Nixtla.AutoSDKHttpResponse<string>(
+                                    var __value = await global::Nixtla.AsyncJobSubmitResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.AsyncJobSubmitResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

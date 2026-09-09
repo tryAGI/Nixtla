@@ -4,11 +4,10 @@
 namespace Nixtla
 {
     /// <summary>
-    /// API for TimeGPT forecast. Just send your data as json and get results. We do the heavy lifting.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public partial interface INixtlaClient : global::System.IDisposable
+    public partial interface IExcludedClient : global::System.IDisposable
     {
         /// <summary>
         /// The HttpClient instance.
@@ -44,16 +43,6 @@ namespace Nixtla
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
-
-        /// <summary>
-        ///
-        /// </summary>
-        public AsyncJobsClient AsyncJobs { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public ExcludedClient Excluded { get; }
 
     }
 }
