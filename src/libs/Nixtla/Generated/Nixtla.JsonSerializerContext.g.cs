@@ -49,6 +49,42 @@ namespace Nixtla
 
             typeof(global::Nixtla.JsonConverters.OnlineAnomalyInputFinetuneLossNullableJsonConverter),
 
+            typeof(global::Nixtla.JsonConverters.AnomalyDetectionAsyncRequestThresholdMethodJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AnomalyDetectionAsyncRequestThresholdMethodNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AnomalyDetectionAsyncRequestFinetuneLossJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AnomalyDetectionAsyncRequestFinetuneLossNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AsyncJobStatusJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AsyncJobStatusNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFinetuneLossJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFinetuneLossNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFeatureContributionsTypeJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFeatureContributionsTypeNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ExplainAsyncRequestMethodJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ExplainAsyncRequestMethodNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.FinetuneAsyncRequestFinetuneLossJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.FinetuneAsyncRequestFinetuneLossNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastAsyncRequestFinetuneLossJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastAsyncRequestFinetuneLossNullableJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastAsyncRequestFeatureContributionsTypeJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.ForecastAsyncRequestFeatureContributionsTypeNullableJsonConverter),
+
             typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<int?, double?>),
 
             typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<int?, double?>),
@@ -64,6 +100,12 @@ namespace Nixtla
             typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<double?, string>),
 
             typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<string, int?>),
+
+            typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<int?, double?>),
+
+            typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<int?, double?>),
+
+            typeof(global::Nixtla.JsonConverters.AnyOfJsonConverter<int?, double?>),
 
             typeof(global::Nixtla.JsonConverters.UnixTimestampJsonConverter),
         })]
@@ -116,6 +158,27 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnyOf<double?, string>), TypeInfoPropertyName = "AnyOfDoubleString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnyOf<string, int?>), TypeInfoPropertyName = "AnyOfStringInt322")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnomalyDetectionAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnomalyDetectionAsyncRequestThresholdMethod), TypeInfoPropertyName = "AnomalyDetectionAsyncRequestThresholdMethod2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnomalyDetectionAsyncRequestFinetuneLoss), TypeInfoPropertyName = "AnomalyDetectionAsyncRequestFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobOptions))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobStatus), TypeInfoPropertyName = "AsyncJobStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobStatusResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobSubmitResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequestFinetuneLoss), TypeInfoPropertyName = "CrossValidationAsyncRequestFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequestFeatureContributionsType), TypeInfoPropertyName = "CrossValidationAsyncRequestFeatureContributionsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ExplainAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ExplainAsyncRequestMethod), TypeInfoPropertyName = "ExplainAsyncRequestMethod2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.FinetuneAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.FinetuneAsyncRequestFinetuneLoss), TypeInfoPropertyName = "FinetuneAsyncRequestFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequestFinetuneLoss), TypeInfoPropertyName = "ForecastAsyncRequestFinetuneLoss2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequestFeatureContributionsType), TypeInfoPropertyName = "ForecastAsyncRequestFeatureContributionsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.OpenJobCounts))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.SimulateAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>))]
