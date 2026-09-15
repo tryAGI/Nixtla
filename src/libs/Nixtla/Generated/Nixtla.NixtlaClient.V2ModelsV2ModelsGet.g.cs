@@ -3,11 +3,11 @@
 
 namespace Nixtla
 {
-    public partial class AsyncJobsClient
+    public partial class NixtlaClient
     {
 
 
-        private static readonly global::Nixtla.EndPointSecurityRequirement s_GetAsyncJobsStatusV2AsyncJobsStatusGetSecurityRequirement0 =
+        private static readonly global::Nixtla.EndPointSecurityRequirement s_V2ModelsV2ModelsGetSecurityRequirement0 =
             new global::Nixtla.EndPointSecurityRequirement
             {
                 Authorizations = new global::Nixtla.EndPointAuthorizationRequirement[]
@@ -21,36 +21,36 @@ namespace Nixtla
                     },
                 },
             };
-        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_GetAsyncJobsStatusV2AsyncJobsStatusGetSecurityRequirements =
+        private static readonly global::Nixtla.EndPointSecurityRequirement[] s_V2ModelsV2ModelsGetSecurityRequirements =
             new global::Nixtla.EndPointSecurityRequirement[]
-            {                s_GetAsyncJobsStatusV2AsyncJobsStatusGetSecurityRequirement0,
+            {                s_V2ModelsV2ModelsGetSecurityRequirement0,
             };
-        partial void PrepareGetAsyncJobsStatusV2AsyncJobsStatusGetArguments(
+        partial void PrepareV2ModelsV2ModelsGetArguments(
             global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetAsyncJobsStatusV2AsyncJobsStatusGetRequest(
+        partial void PrepareV2ModelsV2ModelsGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetAsyncJobsStatusV2AsyncJobsStatusGetResponse(
+        partial void ProcessV2ModelsV2ModelsGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetAsyncJobsStatusV2AsyncJobsStatusGetResponseContent(
+        partial void ProcessV2ModelsV2ModelsGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Count your team's open async jobs<br/>
-        /// Returns your team's open job counts as `{task: {pending, running}}`, with an entry for every async task even when it has no jobs. Only these two states are reported — a succeeded, failed or cancelled job leaves the counts rather than moving between them, so poll a task's status endpoint to see a terminal state. Counts are approximate: they are read from the orchestrator and cached briefly.
+        /// List Models<br/>
+        /// List the models available to your API key. Use a returned `name` as the `model` field of a forecast, cross-validation or anomaly-detection request. A model absent here is one those endpoints would reject with 403.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>> GetAsyncJobsStatusV2AsyncJobsStatusGetAsync(
+        public async global::System.Threading.Tasks.Task<global::Nixtla.ModelsResponse> V2ModelsV2ModelsGetAsync(
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetAsyncJobsStatusV2AsyncJobsStatusGetAsResponseAsync(
+            var __response = await V2ModelsV2ModelsGetAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +58,26 @@ namespace Nixtla
             return __response.Body;
         }
         /// <summary>
-        /// Count your team's open async jobs<br/>
-        /// Returns your team's open job counts as `{task: {pending, running}}`, with an entry for every async task even when it has no jobs. Only these two states are reported — a succeeded, failed or cancelled job leaves the counts rather than moving between them, so poll a task's status endpoint to see a terminal state. Counts are approximate: they are read from the orchestrator and cached briefly.
+        /// List Models<br/>
+        /// List the models available to your API key. Use a returned `name` as the `model` field of a forecast, cross-validation or anomaly-detection request. A model absent here is one those endpoints would reject with 403.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Nixtla.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>>> GetAsyncJobsStatusV2AsyncJobsStatusGetAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ModelsResponse>> V2ModelsV2ModelsGetAsResponseAsync(
             global::Nixtla.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetAsyncJobsStatusV2AsyncJobsStatusGetArguments(
+            PrepareV2ModelsV2ModelsGetArguments(
                 httpClient: HttpClient);
 
 
             var __authorizations = global::Nixtla.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetAsyncJobsStatusV2AsyncJobsStatusGetSecurityRequirements,
-                operationName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync");
+                securityRequirements: s_V2ModelsV2ModelsGetSecurityRequirements,
+                operationName: "V2ModelsV2ModelsGetAsync");
 
             using var __timeoutCancellationTokenSource = global::Nixtla.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,7 +97,7 @@ namespace Nixtla
             {
 
                             var __pathBuilder = new global::Nixtla.PathBuilder(
-                                path: "/v2/async/jobs/status",
+                                path: "/v2/models",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Nixtla.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -136,7 +136,7 @@ namespace Nixtla
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetAsyncJobsStatusV2AsyncJobsStatusGetRequest(
+                PrepareV2ModelsV2ModelsGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest);
 
@@ -155,9 +155,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetAsyncJobsStatusV2AsyncJobsStatusGet",
-                                methodName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync",
-                                pathTemplate: "\"/v2/async/jobs/status\"",
+                                operationId: "V2ModelsV2ModelsGet",
+                                methodName: "V2ModelsV2ModelsGetAsync",
+                                pathTemplate: "\"/v2/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -189,9 +189,9 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetAsyncJobsStatusV2AsyncJobsStatusGet",
-                                methodName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync",
-                                pathTemplate: "\"/v2/async/jobs/status\"",
+                                operationId: "V2ModelsV2ModelsGet",
+                                methodName: "V2ModelsV2ModelsGetAsync",
+                                pathTemplate: "\"/v2/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,9 +230,9 @@ namespace Nixtla
                         await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetAsyncJobsStatusV2AsyncJobsStatusGet",
-                                methodName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync",
-                                pathTemplate: "\"/v2/async/jobs/status\"",
+                                operationId: "V2ModelsV2ModelsGet",
+                                methodName: "V2ModelsV2ModelsGetAsync",
+                                pathTemplate: "\"/v2/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +270,7 @@ namespace Nixtla
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetAsyncJobsStatusV2AsyncJobsStatusGetResponse(
+                ProcessV2ModelsV2ModelsGetResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,9 +278,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetAsyncJobsStatusV2AsyncJobsStatusGet",
-                                methodName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync",
-                                pathTemplate: "\"/v2/async/jobs/status\"",
+                                operationId: "V2ModelsV2ModelsGet",
+                                methodName: "V2ModelsV2ModelsGetAsync",
+                                pathTemplate: "\"/v2/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,9 +300,9 @@ namespace Nixtla
                     await global::Nixtla.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Nixtla.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetAsyncJobsStatusV2AsyncJobsStatusGet",
-                                methodName: "GetAsyncJobsStatusV2AsyncJobsStatusGetAsync",
-                                pathTemplate: "\"/v2/async/jobs/status\"",
+                                operationId: "V2ModelsV2ModelsGet",
+                                methodName: "V2ModelsV2ModelsGetAsync",
+                                pathTemplate: "\"/v2/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,7 +330,7 @@ namespace Nixtla
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetAsyncJobsStatusV2AsyncJobsStatusGetResponseContent(
+                                ProcessV2ModelsV2ModelsGetResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -339,9 +339,9 @@ namespace Nixtla
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>), JsonSerializerContext) ??
+                                    var __value = global::Nixtla.ModelsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ModelsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -371,9 +371,9 @@ namespace Nixtla
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>), JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Nixtla.ModelsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Nixtla.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>>(
+                                    return new global::Nixtla.AutoSDKHttpResponse<global::Nixtla.ModelsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Nixtla.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

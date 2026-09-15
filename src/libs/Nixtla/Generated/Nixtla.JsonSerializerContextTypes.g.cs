@@ -185,123 +185,147 @@ namespace Nixtla
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInput? Type38 { get; set; }
+        public global::Nixtla.ModelInfo? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInputThresholdMethod? Type39 { get; set; }
+        public global::Nixtla.ModelsResponse? Type39 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyInputFinetuneLoss? Type40 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.ModelInfo>? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OnlineAnomalyOutput? Type41 { get; set; }
+        public global::Nixtla.OnlineAnomalyInput? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? Type42 { get; set; }
+        public global::Nixtla.OnlineAnomalyInputThresholdMethod? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>? Type43 { get; set; }
+        public global::Nixtla.OnlineAnomalyInputFinetuneLoss? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnyOf<double?, string>? Type44 { get; set; }
+        public global::Nixtla.OnlineAnomalyOutput? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<string, int?>>? Type45 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>>? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnyOf<string, int?>? Type46 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<double?, string>>? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnomalyDetectionAsyncRequest? Type47 { get; set; }
+        public global::Nixtla.AnyOf<double?, string>? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnomalyDetectionAsyncRequestThresholdMethod? Type48 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.AnyOf<string, int?>>? Type48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AnomalyDetectionAsyncRequestFinetuneLoss? Type49 { get; set; }
+        public global::Nixtla.AnyOf<string, int?>? Type49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AsyncJobOptions? Type50 { get; set; }
+        public global::Nixtla.AnomalyDetectionAsyncRequest? Type50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AsyncJobStatus? Type51 { get; set; }
+        public global::Nixtla.AnomalyDetectionAsyncRequestThresholdMethod? Type51 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AsyncJobStatusResponse? Type52 { get; set; }
+        public global::Nixtla.AnomalyDetectionAsyncRequestFinetuneLoss? Type52 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.AsyncJobSubmitResponse? Type53 { get; set; }
+        public global::Nixtla.AsyncJobOptions? Type53 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.CrossValidationAsyncRequest? Type54 { get; set; }
+        public global::Nixtla.AsyncJobStatus? Type54 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.CrossValidationAsyncRequestFinetuneLoss? Type55 { get; set; }
+        public global::Nixtla.AsyncJobStatusResponse? Type55 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.CrossValidationAsyncRequestFeatureContributionsType? Type56 { get; set; }
+        public global::Nixtla.AsyncJobSubmitResponse? Type56 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ExplainAsyncRequest? Type57 { get; set; }
+        public global::Nixtla.AsyncJobSummary? Type57 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ExplainAsyncRequestMethod? Type58 { get; set; }
+        public global::Nixtla.AsyncJobTaskName? Type58 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetuneAsyncRequest? Type59 { get; set; }
+        public global::Nixtla.AsyncJobsResponse? Type59 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.FinetuneAsyncRequestFinetuneLoss? Type60 { get; set; }
+        public global::System.Collections.Generic.IList<global::Nixtla.AsyncJobSummary>? Type60 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastAsyncRequest? Type61 { get; set; }
+        public global::Nixtla.CrossValidationAsyncRequest? Type61 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastAsyncRequestFinetuneLoss? Type62 { get; set; }
+        public global::Nixtla.CrossValidationAsyncRequestFinetuneLoss? Type62 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.ForecastAsyncRequestFeatureContributionsType? Type63 { get; set; }
+        public global::Nixtla.CrossValidationAsyncRequestFeatureContributionsType? Type63 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.OpenJobCounts? Type64 { get; set; }
+        public global::Nixtla.ExplainAsyncRequest? Type64 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Nixtla.SimulateAsyncRequest? Type65 { get; set; }
+        public global::Nixtla.ExplainAsyncRequestMethod? Type65 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public byte[]? Type66 { get; set; }
+        public global::Nixtla.FinetuneAsyncRequest? Type66 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>? Type67 { get; set; }
+        public global::Nixtla.FinetuneAsyncRequestFinetuneLoss? Type67 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.ForecastAsyncRequest? Type68 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.ForecastAsyncRequestFinetuneLoss? Type69 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.ForecastAsyncRequestFeatureContributionsType? Type70 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Nixtla.SimulateAsyncRequest? Type71 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Nixtla.AsyncJobStatus>? Type72 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public byte[]? Type73 { get; set; }
 
         /// <summary>
         ///
@@ -342,14 +366,26 @@ namespace Nixtla
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>? ListType9 { get; set; }
+        public global::System.Collections.Generic.List<global::Nixtla.ModelInfo>? ListType9 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>? ListType10 { get; set; }
+        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>? ListType10 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<string, int?>>? ListType11 { get; set; }
+        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>? ListType11 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Nixtla.AnyOf<string, int?>>? ListType12 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Nixtla.AsyncJobSummary>? ListType13 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Nixtla.AsyncJobStatus>? ListType14 { get; set; }
     }
 }

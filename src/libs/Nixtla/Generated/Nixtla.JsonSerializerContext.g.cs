@@ -61,6 +61,10 @@ namespace Nixtla
 
             typeof(global::Nixtla.JsonConverters.AsyncJobStatusNullableJsonConverter),
 
+            typeof(global::Nixtla.JsonConverters.AsyncJobTaskNameJsonConverter),
+
+            typeof(global::Nixtla.JsonConverters.AsyncJobTaskNameNullableJsonConverter),
+
             typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFinetuneLossJsonConverter),
 
             typeof(global::Nixtla.JsonConverters.CrossValidationAsyncRequestFinetuneLossNullableJsonConverter),
@@ -149,6 +153,9 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ValidationError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ModelInfo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ModelsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.OnlineAnomalyInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.OnlineAnomalyInputThresholdMethod), TypeInfoPropertyName = "OnlineAnomalyInputThresholdMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.OnlineAnomalyInputFinetuneLoss), TypeInfoPropertyName = "OnlineAnomalyInputFinetuneLoss2")]
@@ -165,6 +172,10 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobStatus), TypeInfoPropertyName = "AsyncJobStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobStatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobSubmitResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobSummary))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobTaskName), TypeInfoPropertyName = "AsyncJobTaskName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AsyncJobsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.AsyncJobSummary>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequestFinetuneLoss), TypeInfoPropertyName = "CrossValidationAsyncRequestFinetuneLoss2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.CrossValidationAsyncRequestFeatureContributionsType), TypeInfoPropertyName = "CrossValidationAsyncRequestFeatureContributionsType2")]
@@ -175,10 +186,9 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequestFinetuneLoss), TypeInfoPropertyName = "ForecastAsyncRequestFinetuneLoss2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.ForecastAsyncRequestFeatureContributionsType), TypeInfoPropertyName = "ForecastAsyncRequestFeatureContributionsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.OpenJobCounts))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.SimulateAsyncRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Nixtla.AsyncJobStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Nixtla.OpenJobCounts>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>))]
@@ -188,9 +198,12 @@ namespace Nixtla
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.FinetunedModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.ValidationError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.AnyOf<double?, string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.AnyOf<string, int?>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.AsyncJobSummary>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Nixtla.AsyncJobStatus>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
