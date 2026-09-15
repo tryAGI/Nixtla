@@ -2,7 +2,7 @@
 
 namespace Nixtla
 {
-    public sealed partial class GetAsyncJobsStatusV2AsyncJobsStatusGetResponse
+    public sealed partial class ModelsResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace Nixtla
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse? FromJson(
+        public static global::Nixtla.ModelsResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse),
-                jsonSerializerContext) as global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse;
+                typeof(global::Nixtla.ModelsResponse),
+                jsonSerializerContext) as global::Nixtla.ModelsResponse;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse? FromJson(
+        public static global::Nixtla.ModelsResponse? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace Nixtla
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse? FromJson(
+        public static global::Nixtla.ModelsResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace Nixtla
                     global::Nixtla.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Nixtla.ModelsResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace Nixtla
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Nixtla.ModelsResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse;
+                typeof(global::Nixtla.ModelsResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Nixtla.ModelsResponse;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Nixtla.ModelsResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace Nixtla
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Nixtla.ModelsResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace Nixtla
                     global::Nixtla.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Nixtla.GetAsyncJobsStatusV2AsyncJobsStatusGetResponse?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Nixtla.ModelsResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
