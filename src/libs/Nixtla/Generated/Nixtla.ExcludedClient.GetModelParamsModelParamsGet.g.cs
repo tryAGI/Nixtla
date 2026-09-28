@@ -157,8 +157,8 @@ namespace Nixtla
                 PrepareGetModelParamsModelParamsGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    model: model!,
-                    freq: freq!);
+                    model: model,
+                    freq: freq);
 
                 return __httpRequest;
             }
@@ -180,7 +180,7 @@ namespace Nixtla
                                 pathTemplate: "\"/model_params\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -214,7 +214,7 @@ namespace Nixtla
                                 pathTemplate: "\"/model_params\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -255,7 +255,7 @@ namespace Nixtla
                                 pathTemplate: "\"/model_params\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -303,7 +303,7 @@ namespace Nixtla
                                 pathTemplate: "\"/model_params\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -325,7 +325,7 @@ namespace Nixtla
                                 pathTemplate: "\"/model_params\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
