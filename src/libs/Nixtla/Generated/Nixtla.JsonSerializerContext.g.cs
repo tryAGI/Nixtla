@@ -110,6 +110,7 @@ namespace Nixtla
     #pragma warning restore CS3016
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.JsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.AnomalyDetectionInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Nixtla.SeriesWithFutureExogenous))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
